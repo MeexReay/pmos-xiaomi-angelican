@@ -4,6 +4,7 @@ This port also might work on angelica (without NFC) and other phones on MT6765 p
 
 ## Roadmap
 
+- [ ] Kernel compiling
 - [ ] Kernel loading
 - [ ] SSH
 - [ ] Screen
