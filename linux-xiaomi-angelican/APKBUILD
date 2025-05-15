@@ -1,8 +1,8 @@
-# Reference: <https://postmarketos.org/vendorkernel>
-# Kernel config based on: arch/arm64/configs/(CHANGEME!)
+# Reference: <https://github.com/xiaomi-mt6765/android_kernel_xiaomi_mt6765>
+# Kernel config based on: arch/arm64/configs/k62v1_64_bsp_defconfig
 
 pkgname=linux-xiaomi-angelican
-pkgver=4.9.190
+pkgver=4.9.119
 pkgrel=0
 pkgdesc="Xiaomi Redmi 9C NFC kernel fork"
 arch="aarch64"
@@ -11,7 +11,6 @@ _flavor="xiaomi-angelican"
 url="https://kernel.org"
 license="GPL-2.0-only"
 options="!strip !check !tracedeps pmb:cross-native"
-gpu_accelerated=true
 makedepends="
 	bash
 	bc
@@ -24,43 +23,26 @@ makedepends="
 "
 
 # Source
-_author="droidian-mt6765"
-_repository="kernel-xiaomi-mt6765"
-_commit="d31e916b28ccf4419c00e6e774841e7d65df06c5"
+_author="xiaomi-mt6765"
+_repository="android_kernel_xiaomi_mt6765"
+_commit="31dbe7b6881b35094fa220a68f6c476c615f10dc"
 _config="config-$_flavor.$arch"
 source="
 	$pkgname-$_commit.tar.gz::https://github.com/$_author/$_repository/archive/$_commit.tar.gz
-	$_config::https://raw.githubusercontent.com/$_author/$_repository/$_commit/arch/$_carch/configs/angelican_defconfig
+	$_config
+	0001-extern-yylloc.patch
 "
-
-
-	# gcc7-give-up-on-ilog2-const-optimizations.patch
-	# gcc8-fix-put-user.patch
-	# gcc10-extern_YYLOC_global_declaration.patch
-	# kernel-use-the-gnu89-standard-explicitly.patch
 
 builddir="$srcdir/$_repository-$_commit"
 _outdir="out"
 
 prepare() {
-	# export PY2_PREFIX="$srcdir/python2"
-	# mkdir -p "$PY2_PREFIX"
-	# wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz -O "$srcdir/Python-2.7.18.tgz"
-	# tar -xzf "$srcdir/Python-2.7.18.tgz" -C "$srcdir"
-	# cd "$srcdir/Python-2.7.18"
-	# ./configure --prefix="$PY2_PREFIX" --enable-optimizations
-	# make -j$(nproc)
-	# make install
-	# export PATH="$PY2_PREFIX/bin:$PATH"
-	# cd "$builddir"
-
 	default_prepare
 	. downstreamkernel_prepare
 }
 
 build() {
 	unset LDFLAGS
-	# export PATH="$srcdir/python2/bin:$PATH"
 	make O="$_outdir" ARCH="$_carch" CC="${CC:-gcc}" \
 		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-postmarketOS"
 }
@@ -71,6 +53,7 @@ package() {
 }
 
 sha512sums="
-0f57f5b30e76949b9b8835dac5d1d1eedbc8602605f76106f7c9425a4844f2bc01c9736c84c64388cc884a4812d04e4e16597b1d930f0c0cd5cca0ac77802291  linux-xiaomi-angelican-d31e916b28ccf4419c00e6e774841e7d65df06c5.tar.gz
-ce3893cf439868f4b0a6ed5a47de99cc6e2a3cd68cb132e3c43d64bf1ef509a6df9a38d0984cb0f36d0c4ee5170e07185532f4749f61c33dd3e2c5d8385cdfd2  config-xiaomi-angelican.aarch64
+c543d691eac482c6bef8c6b5c42cf2643e53745ac437c659de6b31720e5e879cc5ecfab1ac63c60eea24acb7a9e40db5e54d3ac5a461c6136d073bdc1ff3560f  linux-xiaomi-angelican-31dbe7b6881b35094fa220a68f6c476c615f10dc.tar.gz
+f3781cbb4e9e190df38c3fe7fa80ba69bf6f9dbafb158e0426dd4604f2f1ba794450679005a38d0f9f1dad0696e2f22b8b086b2d7d08a0f99bb4fd3b0f7ed5d8  config-xiaomi-angelican.aarch64
+160f8b4031caeae8c760c7c35c474a87dffce8ca44b9c8ca2efefab60243c12f40ccfd5427dbcede8a534e139b246334949450bbb560a5e21909eea7c5b526f5  0001-extern-yylloc.patch
 "
