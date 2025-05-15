@@ -13,9 +13,9 @@ This port also might work on angelica (without NFC) and other phones on MT6765 p
 ```bash
 PMAPORTS=~/.local/var/pmbootstrap/cache_git/pmaports
 git clone https://github.com/MeexReay/pmos-xiaomi-angelican.git /tmp/pmosxan
-mv -r /tmp/pmosxan/linux-xiaomi-angelican $PMAPORTS/device/testing
-mv -r /tmp/pmosxan/device-xiaomi-angelican $PMAPORTS/device/testing
-rm -r /tmp/pmosxan
+mv /tmp/pmosxan/linux-xiaomi-angelican $PMAPORTS/device/testing
+mv /tmp/pmosxan/device-xiaomi-angelican $PMAPORTS/device/testing
+rm -rf /tmp/pmosxan
 ```
 
 ## How to flash
