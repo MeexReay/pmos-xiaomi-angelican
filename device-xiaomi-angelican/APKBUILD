@@ -1,12 +1,12 @@
 # Reference: <https://postmarketos.org/devicepkg>
 pkgname=device-xiaomi-angelican
 pkgdesc="Xiaomi Redmi 9C NFC"
-pkgver=1
+pkgver=0.1
 pkgrel=0
 url="https://postmarketos.org"
 license="MIT"
 arch="aarch64"
-options="!check !archcheck"
+options="!check !archcheck !strip"
 depends="
 	linux-xiaomi-angelican
 	mkbootimg
