@@ -53,9 +53,11 @@ package() {
 	make dtbs_install O="$_outdir" ARCH="$_carch" \
 		INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs
 
-        make modules_install O="$_outdir" ARCH="$_carch" \
-                INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs \
-                INSTALL_MOD_PATH="$pkgdir" INSTALL_MOD_STRIP=1
+  make modules_install O="$_outdir" ARCH="$_carch" \
+    INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs \
+    INSTALL_MOD_PATH="$pkgdir" INSTALL_MOD_STRIP=1
+
+	cat "$pkgdir"/boot/dtbs/mediatek/*.dtb > "$pkgdir"/boot/dtbs/mediatek/merged.dtb
 }
 
 sha512sums="
