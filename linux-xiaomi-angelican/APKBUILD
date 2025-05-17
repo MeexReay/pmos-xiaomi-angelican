@@ -31,6 +31,8 @@ source="
 	$_config
 	001-touchscreen-firmware-loading-time.patch
 	002-battery-percentage.patch
+	003-fix-check-lxdialog-makefile.patch
+	004-fix-check-lxdialog.patch
 "
 builddir="$srcdir/$_repository-$_commit"
 _outdir="out"
@@ -53,16 +55,18 @@ package() {
 	make dtbs_install O="$_outdir" ARCH="$_carch" \
 		INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs
 
-  make modules_install O="$_outdir" ARCH="$_carch" \
-    INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs \
-    INSTALL_MOD_PATH="$pkgdir" INSTALL_MOD_STRIP=1
+#  make modules_install O="$_outdir" ARCH="$_carch" \
+#    INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs \
+#    INSTALL_MOD_PATH="$pkgdir" INSTALL_MOD_STRIP=1
 
 	cat "$pkgdir"/boot/dtbs/mediatek/*.dtb > "$pkgdir"/boot/dtbs/mediatek/merged.dtb
 }
 
 sha512sums="
 beeaa1b5b5d3e6f635508c6f421051080f7fdc296909db7448e4c706b6a54755badc2ea0c1316dbf0a1d394dbea15266a84dfa36d9818c8df99747484c9175b6  linux-xiaomi-angelican-5b52fedbe4d7c6809b5040f7486a8b72812f3fba.tar.gz
-ce3893cf439868f4b0a6ed5a47de99cc6e2a3cd68cb132e3c43d64bf1ef509a6df9a38d0984cb0f36d0c4ee5170e07185532f4749f61c33dd3e2c5d8385cdfd2  config-xiaomi-angelican.aarch64
+27dd6f087358de4597005b97eef6c8dafcded0a2f6f6700c78d63d961ea9f16255e0ee8881d6d8ca9a618e9c1ca0088320775beb23a4aad95a54d269673a514e  config-xiaomi-angelican.aarch64
 3fc36011ab030382f6b74e3821dcc75a236e12fe38bf18639fededc6c49a8c809d9ca1af5a9f2ed83f5f412a383918db14b4af48eda7087ec5997ca00e018152  001-touchscreen-firmware-loading-time.patch
 2ed25978e3c91addf7e568b68ccb6036aa581da0981ec75527e25d15d0ee7dfed97100376e58ce6a6c07ef8a96210a30c0ad91b3cea29528aa89fc59980691bf  002-battery-percentage.patch
+c33fad9de627e72f12e61e728fa1ec53ef15259c7790392a997cc7269e60e45da9534d58851c3b348a1729aaa134d1df305e33546e8a1f3654462f2c3c1d9563  003-fix-check-lxdialog-makefile.patch
+182be3c596b9cc267ac108d7cf03fc8c328ccc6b36770800e4dcedea8d1bb65e3f5eacf590c2948f58b1418cc60a1670ba77dde8c259e428d158c31b6e1dbaf5  004-fix-check-lxdialog.patch
 "
