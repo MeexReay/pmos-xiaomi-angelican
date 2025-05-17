@@ -18,15 +18,9 @@ then
   exit 1
 fi
 
-tail -n $NUM_LINES /tmp/full-kernel-trouble > kernel-trouble.txt
+tail -n $NUM_LINES /tmp/full-kernel-trouble.txt > kernel-trouble.txt
 
-echo
-echo "Last $NUM_LINES log lines" 
-echo
+less +G /tmp/full-kernel-trouble.txt
 
-cat kernel-trouble.txt
-
-echo
-echo "Saved to \"$PWD/kernel-trouble.txt\""
+echo "Saved last $NUM_LINES to \"$PWD/kernel-trouble.txt\""
 echo "Full log was saved to \"/tmp/full-kernel-trouble.txt\""
-echo
