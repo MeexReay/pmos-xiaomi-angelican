@@ -1,0 +1,54 @@
+[    5.778904]  (2)[53:kauditd]audit: type=1403 audit(1262496961.144:2): auid=4294967295 ses=4294967295 lsm=selinux res=1
+[    5.779157]  (1)[1:init]selinux 3: SELinux: Loaded policy from /vendor/etc/selinux/precompiled_sepolicy
+[    5.779157] 
+[    5.779619]  (2)[53:kauditd]audit: type=1404 audit(1262496961.144:3): enforcing=1 old_enforcing=0 auid=4294967295 ses=4294967295 enabled=1 old-enabled=1 lsm=selinux res=1
+[    5.782062] -(3)[0:swapper/3]nano_ipi_start notify
+[    5.783464]  (2)[189:scp_power_reset][sensorHub] [sensorHub] sensor_send_dram_info_to_hub success
+[    5.785917]  (3)[29:kworker/3:0][sensorHub] scp_sensorHub_req_send fail!
+[    5.785928]  (3)[29:kworker/3:0]<SEN_LIST> sensor(1) not register
+[    5.789321]  (3)[29:kworker/3:0][sensorHub] scp_sensorHub_req_send fail!
+[    5.789332]  (3)[29:kworker/3:0]<SEN_LIST> sensor(5) not register
+[    5.800487]  (2)[1:init]selinux 3: SELinux: Loaded file_contexts
+[    5.800487] 
+[    5.835164]  (1)[1:init]init 3: init second stage started!
+[    5.881848]  (1)[1:init]init 3: Using Android DT directory /proc/device-tree/firmware/android/
+[    5.882972]  (1)[1:init]init 3: Init cannot set 'ro.boot.hardware' to 'mt6765': Read-only property was already set
+[    5.883033]  (1)[1:init]init 3: Init cannot set 'ro.boot.mode' to 'charger': Read-only property was already set
+[    5.883389]  (1)[1:init]init 3: Init cannot set 'ro.boot.serialno' to 'LBAM59WKEMSGTK4H': Read-only property was already set
+[    5.890358]  (2)[312:init]init (312) used greatest stack depth: 12160 bytes left
+[    5.890683] -(1)[1:init]Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[    5.890683] 
+[    5.890701] -(1)[1:init]SMP: stopping secondary CPUs
+[    6.953954] -(1)[1:init]Kernel Offset: 0x27f4800000 from 0xffffff8008000000
+[    6.953965] -(1)[1:init]PHYS_OFFSET: 0xfffffff5c0000000
+[    6.953970] -(1)[1:init]Modules linked in:
+[    6.953987] -(1)[1:init]CPU: 1 PID: 1 Comm: init Tainted: G        W         4.19.127-perf-g7288046673d5 #1
+[    6.953994] -(1)[1:init]Hardware name: MT6765G (DT)
+[    6.954001] -(1)[1:init]Call trace:
+[    6.954015] -(1)[1:init] dump_backtrace+0x0/0x198
+[    6.954023] -(1)[1:init] show_stack+0x20/0x2c
+[    6.954032] -(1)[1:init] dump_stack+0xb8/0xf0
+[    6.954041] -(1)[1:init] mrdump_common_die+0x174/0x22c
+[    6.954047] -(1)[1:init] ipanic+0xac/0xd8
+[    6.954056] -(1)[1:init] atomic_notifier_call_chain+0x50/0x88
+[    6.954064] -(1)[1:init] panic+0x13c/0x288
+[    6.954073] -(1)[1:init] complete_and_exit+0x0/0x2c
+[    6.954080] -(1)[1:init] do_group_exit+0x8c/0x9c
+[    6.954089] -(1)[1:init] get_signal+0x1b4/0x67c
+[    6.954097] -(1)[1:init] do_notify_resume+0x150/0x23e4
+[    6.954105] -(1)[1:init] work_pending+0x8/0x10
+[    6.954262] -(1)[1:init]mrdump: cpu[1] tsk:0xffffffcab4678e80 ti:0xffffffcab4680000
+[    6.996393] -(1)[1:init]mrdump: add UFS:0xffffffa7ff1a0c80 sz:0x0 failed
+[    6.996456] -(1)[1:init]mrdump: add CCCI:0xffffffcafa858000 sz:0x0 failed
+[    6.996465] -(1)[1:init]mrdump: add MD:0xffffffcafa900000 sz:0x0 failed
+[    6.996641] -(1)[1:init]Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: mrdump_common_die+0x22c/0x22c
+[    6.996848] -(1)[1:init]SMP: stopping secondary CPUs
+[   11.579341] -(1)[1:init]SMP: failed to stop secondary CPUs 0-3
+[   11.579624] -(1)[1:init]Kernel Offset: 0x27f4800000 from 0xffffff8008000000
+[   11.579781] -(1)[1:init]PHYS_OFFSET: 0xfffffff5c0000000
+[   11.579938] -(1)[1:init]CPU features: 0x00000000,2080200c
+[   11.580082] -(1)[1:init]Memory Limit: none
+[   12.820547] -(1)[1:init]Rebooting in 1 seconds..
+[   13.844680] -(1)[1:init]SMP: stopping secondary CPUs
+[   18.331757] -(1)[1:init]SMP: failed to stop secondary CPUs 0-3
+
