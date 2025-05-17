@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-./extract-paths.sh
+source extract-paths.sh
 
 pmbootstrap chroot apk add android-tools
 
