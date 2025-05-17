@@ -10,14 +10,23 @@ fi
 
 pmbootstrap chroot adb pull /proc/last_kmsg /home/pmos
 
-tail -n $NUM_LINES $PMWORK/chroot_native/home/pmos/last_kmsg > kernel-trouble
+if ! mv $PMWORK/chroot_native/home/pmos/last_kmsg /tmp/full-kernel-trouble
+then
+  echo "1. Enter to the recovery mode"
+  echo "2. Run this script"
+  echo "3. Connect the phone to usb cable"
+  exit 1
+fi
+
+tail -n $NUM_LINES /tmp/full-kernel-trouble > kernel-trouble
 
 echo
-echo " --- Kernel log (last $NUM_LINES lines) --- " 
+echo "Last $NUM_LINES log lines" 
 echo
 
 cat kernel-trouble
 
 echo
-echo " --- Writed to \"$PWD/kernel-trouble\" --- "
+echo "Saved to \"$PWD/kernel-trouble\""
+echo "Full log was saved to \"/tmp/full-kernel-trouble\""
 echo
