@@ -61,7 +61,6 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 # i did it with test point, but it isnt required
 ```
 
-
 ## See also
 
 - [xiaomi angelican wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_NFC_(xiaomi-angelican))
@@ -70,3 +69,7 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 - [coloredmarble/redmi_blossom](https://github.com/coloredmarble/redmi_blossom)
 - [xiaomi angelica wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_(xiaomi-angelica))
 - [xiaomi dandelion wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9A_(xiaomi-dandelion))
+
+## Contributing
+
+If you would like to contribute to the project, feel free to fork the repository and submit a pull request.
