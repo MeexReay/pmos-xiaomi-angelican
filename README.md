@@ -61,10 +61,12 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 # i did it with test point, but it isnt required
 ```
 
-Found here: [coloredmarble/redmi_blossom](https://github.com/coloredmarble/redmi_blossom)
 
 ## See also
 
-- [postmarketos wiki about xiaomi angelica](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_(xiaomi-angelica))
-- [postmarketos wiki about xiaomi dandelion](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9A_(xiaomi-dandelion))
-
+- [xiaomi angelican wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_NFC_(xiaomi-angelican))
+- [mtkclient](https://github.com/bkerler/mtkclient)
+- [booting troubleshooting](https://wiki.postmarketos.org/wiki/Troubleshooting_on-device_issues/Booting_problems)
+- [coloredmarble/redmi_blossom](https://github.com/coloredmarble/redmi_blossom)
+- [xiaomi angelica wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_(xiaomi-angelica))
+- [xiaomi dandelion wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9A_(xiaomi-dandelion))
