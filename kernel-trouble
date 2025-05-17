@@ -1,3 +1,50 @@
+[    5.397578]  (1)[1:init]battery_psy_get_property psp:18 ret:0 val:-6900
+[    5.399363]  (1)[1:init]battery_psy_get_property psp:12 ret:0 val:3802000
+[    5.399370]  (1)[1:init]battery_psy_get_property psp:24 ret:0 val:5078000
+[    5.399376]  (1)[1:init]battery_psy_get_property psp:117 ret:0 val:2
+[    5.399382]  (1)[1:init]battery_psy_get_property psp:28 ret:0 val:0
+[    5.400054]  (1)[1:init][reg_to_current] 0xfff5 0xfff5 0xfff5 0x1f 0x1f 0
+[    5.400439]  (1)[1:init][BattThermistorConverTemp] 79232 63187 65772 30 35 34
+[    5.400451]  (1)[1:init][BattVoltToTemp] 711 100000 1792 0
+[    5.400464]  (1)[1:init][force_get_tbat_internal] 711,711,0,3,100,34 r:100 100 0
+[    5.400474]  (1)[1:init]battery_psy_get_property psp:46 ret:0 val:340
+[    5.400483]  (1)[1:init]battery_psy_get_property psp:92 ret:0 val:75
+[    5.400496]  (1)[1:init]battery_psy_get_property psp:45 ret:0 val:0
+[    5.400510]  (1)[1:init]battery_psy_get_property psp:56 ret:0 val:0
+[    5.400523]  (1)[1:init]battery_psy_get_property psp:22 ret:0 val:5000000
+[    5.400534]  (1)[1:init]battery_psy_get_property psp:73 ret:0 val:0
+[    5.400547]  (1)[1:init]battery_psy_get_property psp:219 ret:0 val:2
+[    5.400556]  (1)[1:init]battery_psy_get_property psp:94 ret:0 val:328634
+[    5.400562]  (1)[1:init]battery_psy_get_property psp:91 ret:0 val:0
+[    5.400568]  (1)[1:init]battery_psy_get_property psp:33 ret:0 val:0
+[    5.400573]  (1)[1:init]battery_psy_get_property psp:34 ret:0 val:0
+[    5.402220]  (1)[1:init]psy_chr_type_get_property: prop:4
+[    5.402231]  (1)[1:init]psy_chr_type_get_property: prop:59
+[    5.402239]  (1)[1:init]psy_chr_type_get_property: prop:12
+[    5.431171]  (1)[1:init]init: [libfs_mgr]superblock s_max_mnt_count:65535,/dev/block/platform/bootdevice/by-name/md_udc
+[    5.431314]  (1)[1:init]init: [libfs_mgr]Filesystem on /dev/block/platform/bootdevice/by-name/md_udc was not cleanly shutdown; state flags: 0x1, incompat feature flags: 0x46
+[    5.431700]  (1)[1:init]init: [libfs_mgr]check_fs(): mount(/dev/block/platform/bootdevice/by-name/md_udc,/metadata,ext4)=-1: No such file or directory
+[    5.431846]  (1)[1:init]init: [libfs_mgr]Not running /system/bin/e2fsck on /dev/block/mmcblk0p13 (executable not in system image)
+[    5.438651]  (3)[1:init]EXT4-fs (mmcblk0p13): recovery complete
+[    5.438674]  (3)[1:init]EXT4-fs (mmcblk0p13): mounted filesystem with ordered data mode. Opts: discard
+[    5.465363]  (3)[1:init]device-mapper: verity: sha256 using implementation "sha256-ce"
+[    5.471933]  (0)[1:init]EXT4-fs (dm-3): mounted filesystem without journal. Opts: 
+[    5.476131]  (1)[1:init]device-mapper: verity: sha256 using implementation "sha256-ce"
+[    5.487447]  (3)[1:init]EXT4-fs (dm-4): mounted filesystem without journal. Opts: 
+[    5.488032]  (3)[248:kworker/3:2]CDP, block
+[    5.490505]  (0)[1:init]device-mapper: verity: sha256 using implementation "sha256-ce"
+[    5.497261]  (2)[1:init]EXT4-fs (dm-5): mounted filesystem without journal. Opts: 
+[    5.511105]  (1)[1:init]init: 20 output lines suppressed due to ratelimiting
+[    5.648330]  (1)[1:init]init 3: Loading SELinux policy
+[    5.701847]  (1)[1:init]SELinux:  Permission nlmsg_readpriv in class netlink_route_socket not defined in policy.
+[    5.702119]  (1)[1:init]SELinux:  Class perf_event not defined in policy.
+[    5.702123]  (1)[1:init]SELinux: the above unknown classes and permissions will be denied
+[    5.702180]  (1)[1:init]SELinux:  policy capability network_peer_controls=1
+[    5.702185]  (1)[1:init]SELinux:  policy capability open_perms=1
+[    5.702189]  (1)[1:init]SELinux:  policy capability extended_socket_class=1
+[    5.702193]  (1)[1:init]SELinux:  policy capability always_check_network=0
+[    5.702197]  (1)[1:init]SELinux:  policy capability cgroup_seclabel=0
+[    5.702201]  (1)[1:init]SELinux:  policy capability nnp_nosuid_transition=1
 [    5.778904]  (2)[53:kauditd]audit: type=1403 audit(1262496961.144:2): auid=4294967295 ses=4294967295 lsm=selinux res=1
 [    5.779157]  (1)[1:init]selinux 3: SELinux: Loaded policy from /vendor/etc/selinux/precompiled_sepolicy
 [    5.779157] 
@@ -51,4 +98,3 @@
 [   12.820547] -(1)[1:init]Rebooting in 1 seconds..
 [   13.844680] -(1)[1:init]SMP: stopping secondary CPUs
 [   18.331757] -(1)[1:init]SMP: failed to stop secondary CPUs 0-3
-

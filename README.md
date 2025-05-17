@@ -12,9 +12,9 @@ This port also might work on angelica (without NFC) and other phones on MT6765 p
 ## How to install
 
 ```bash
-PMAPORTS=~/.local/var/pmbootstrap/cache_git/pmaports # change this to your pmaports path
 git clone https://github.com/MeexReay/pmos-xiaomi-angelican.git
 cd pmos-xiaomi-angelican
+./extract-paths.sh
 ln -s $PWD/linux-xiaomi-angelican $PMAPORTS/device/testing
 ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 ```
