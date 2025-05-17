@@ -61,6 +61,9 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 # i did it with test point, but it isnt required
 ```
 
+### Contributing
+
+If you would like to contribute to the project, feel free to fork the repository and submit a pull request.
 
 ## See also
 
