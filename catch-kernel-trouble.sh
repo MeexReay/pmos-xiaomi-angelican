@@ -27,6 +27,6 @@ echo
 cat kernel-trouble.txt
 
 echo
-echo "Saved to \"$PWD/kernel-trouble\""
-echo "Full log was saved to \"/tmp/full-kernel-trouble\""
+echo "Saved to \"$PWD/kernel-trouble.txt\""
+echo "Full log was saved to \"/tmp/full-kernel-trouble.txt\""
 echo
