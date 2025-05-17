@@ -1,26 +1,67 @@
 #!/bin/sh
 
-NUM_LINES=100
-
-if [ $# -ge 1 ]; then
-  NUM_LINES="$1"
-fi
-
 ./extract-paths.sh
 
-pmbootstrap chroot adb pull /proc/last_kmsg /home/pmos
+pmbootstrap chroot apk add android-tools
 
-if ! sudo mv $PMWORK/chroot_native/home/pmos/last_kmsg /tmp/full-kernel-trouble.txt
+has_fastboot_device() {
+  if pmbootstrap chroot fastboot devices | grep -q "LBA"
+  then
+    return 
+  else
+    return 1
+  fi
+}
+
+wait_fastboot_device() {
+  until has_fastboot_device
+  do
+    sleep 1
+  done
+}
+
+has_recovery_device() {
+  if pmbootstrap chroot adb devices | grep -q "recovery"
+  then
+    return 0
+  else
+    return 1
+  fi
+}
+
+wait_recovery_device() {
+  until has_recovery_device
+  do
+    sleep 1
+  done
+}
+
+if ! has_fastboot_device
 then
-  echo "1. Enter to the recovery mode"
-  echo "2. Run this script"
-  echo "3. Connect the phone to usb cable"
-  exit 1
+  echo "Rebooting into Fastboot..."
+  echo "Hold Volume Down button!"
+  sleep 1
+
+  pmbootstrap chroot adb reboot bootloader
+
+  sleep 10
 fi
 
-tail -n $NUM_LINES /tmp/full-kernel-trouble.txt > kernel-trouble.txt
+until pmbootstrap flasher flash_rootfs
+do
+  sleep 1
+done
+until pmbootstrap flasher boot
+do
+  sleep 1
+done
 
-less +G /tmp/full-kernel-trouble.txt
+echo "Booting into System..."
 
-echo "Saved last $NUM_LINES to \"$PWD/kernel-trouble.txt\""
-echo "Full log was saved to \"/tmp/full-kernel-trouble.txt\""
+sleep 15
+
+echo "Rebooting into Recovery..."
+echo "Hold Volume Up button!"
+
+wait_recovery_device
+./extract-kernel-trouble.sh
