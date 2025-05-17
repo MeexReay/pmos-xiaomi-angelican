@@ -10,7 +10,7 @@ fi
 
 pmbootstrap chroot adb pull /proc/last_kmsg /home/pmos
 
-if ! mv $PMWORK/chroot_native/home/pmos/last_kmsg /tmp/full-kernel-trouble
+if ! sudo mv $PMWORK/chroot_native/home/pmos/last_kmsg /tmp/full-kernel-trouble
 then
   echo "1. Enter to the recovery mode"
   echo "2. Run this script"
