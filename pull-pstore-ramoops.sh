@@ -2,7 +2,7 @@
 
 source extract-paths.sh
 
-LOG_FILE=/proc/last_kmsg
+LOG_FILE=/sys/fs/pstore/console-ramoops-0
 
 pmbootstrap chroot apk add android-tools
 

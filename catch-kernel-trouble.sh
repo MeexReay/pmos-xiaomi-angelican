@@ -64,4 +64,4 @@ echo "Rebooting into Recovery..."
 echo "Hold Volume Up button!"
 
 wait_recovery_device
-./extract-kernel-trouble.sh
+source pull-pstore-ramoops.sh
