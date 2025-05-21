@@ -10,7 +10,7 @@ has_fastboot() {
 }
 
 has_recovery() {
-  pmbootstrap chroot adb devices | grep -q "recovery"
+  pmbootstrap chroot adb devices 2> /dev/null | grep -q "recovery"
   return $?
 }
 
