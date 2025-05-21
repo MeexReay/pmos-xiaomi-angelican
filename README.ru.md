@@ -36,7 +36,7 @@ pmbootstrap flasher flash_kernel # подключи кабель ПОСЛЕ вв
 pmbootstrap chroot fastboot reboot # подключи кабель ПОСЛЕ ввода
 ```
 
-## Как разблокирован бутлоадер
+## Как разблокировать бутлоадер
 
 ### Драйвера
 
