@@ -1,2 +1,0 @@
-
-Caught KeyboardInterrupt, exiting …

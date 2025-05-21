@@ -4,39 +4,21 @@ source extract-paths.sh
 
 pmbootstrap chroot apk add android-tools
 
-has_fastboot_device() {
-  if pmbootstrap chroot fastboot devices | grep -q "LBA"
-  then
-    return 
-  else
-    return 1
-  fi
+has_fastboot() {
+  pmbootstrap chroot fastboot devices 2> /dev/null | grep -q "LBA"
+  return $?
 }
 
-wait_fastboot_device() {
-  until has_fastboot_device
-  do
-    sleep 1
-  done
+has_recovery() {
+  pmbootstrap chroot adb devices | grep -q "recovery"
+  return $?
 }
 
-has_recovery_device() {
-  if pmbootstrap chroot adb devices | grep -q "recovery"
-  then
-    return 0
-  else
-    return 1
-  fi
+wait_for() {
+  until "$@"; do; sleep 1; done
 }
 
-wait_recovery_device() {
-  until has_recovery_device
-  do
-    sleep 1
-  done
-}
-
-if ! has_fastboot_device
+if ! has_fastboot
 then
   echo "Rebooting into Fastboot..."
   echo "Hold Volume Down button!"
@@ -47,14 +29,8 @@ then
   sleep 10
 fi
 
-until pmbootstrap flasher flash_rootfs
-do
-  sleep 1
-done
-until pmbootstrap flasher boot
-do
-  sleep 1
-done
+wait_for pmbootstrap flasher flash_rootfs
+wait_for pmbootstrap flasher boot
 
 echo "Booting into System..."
 
@@ -63,5 +39,5 @@ sleep 15
 echo "Rebooting into Recovery..."
 echo "Hold Volume Up button!"
 
-wait_recovery_device
+wait_for has_recovery
 source pull-pstore-ramoops.sh
