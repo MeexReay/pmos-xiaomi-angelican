@@ -70,6 +70,10 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 - [xiaomi angelica wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_(xiaomi-angelica))
 - [xiaomi dandelion wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9A_(xiaomi-dandelion))
 
+## Contacts
+
+If you want to develop it together, or maybe you have working port, please write me in discord: @themixray. Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
+
 ## Contributing
 
 If you would like to contribute to the project, feel free to fork the repository and submit a pull request.
