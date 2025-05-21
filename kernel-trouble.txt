@@ -1,100 +1,100 @@
-[ 2179.262755] <0>.(0)[299:recovery]mt635x-auxadc mt635x-auxadc: name:VBIF, channel=11, adc_out=0xfef, adc_result=1792
-[ 2179.264071] <0>.(0)[299:recovery][BattThermistorConverTemp] 79232 63187 74538 30 35 31
-[ 2179.265092] <0>.(0)[299:recovery][BattVoltToTemp] 767 100000 1796 4
-[ 2179.265884] <0>.(0)[299:recovery][force_get_tbat_internal] 763,767,0,232,100,31 r:100 100 0
-[ 2179.266937] <0>.(0)[1:init]battery_psy_get_property psp:46 ret:0 val:310
-[ 2180.292572] <0>.(0)[1:init]init: starting service 'gatekeeper-1-0'...
-[ 2180.296876] <1>.(1)[1504:init]init: cannot execv('/vendor/bin/hw/android.hardware.gatekeeper@1.0-service'). See the 'Debugging init' section of init's README.md for tips: No such file or directory
-[ 2180.297578] <2>.(2)[1:init]init: starting service 'keymaster-4-0'...
-[ 2180.301988] <0>.(0)[1505:init]init invoked oom-killer: gfp_mask=0x6200ca(GFP_HIGHUSER_MOVABLE), nodemask=(null), order=0, oom_score_adj=-1000
-[ 2180.303592] <0>.(0)[1505:init]init cpuset=/ mems_allowed=0
-[ 2180.304373] <0>-(0)[1505:init]CPU: 0 PID: 1505 Comm: init Tainted: G        W         4.19.127-perf-g6ea809b #1
-[ 2180.305642] <0>-(0)[1505:init]Hardware name: MT6765G (DT)
-[ 2180.306325] <0>-(0)[1505:init]Call trace:
-[ 2180.306840] <0>-(0)[1505:init] dump_backtrace+0x0/0x164
-[ 2180.307500] <0>-(0)[1505:init] show_stack+0x20/0x2c
-[ 2180.308120] <0>-(0)[1505:init] dump_stack+0xb8/0xf0
-[ 2180.308740] <0>-(0)[1505:init] dump_header+0x68/0x1d0
-[ 2180.309379] <0>-(0)[1505:init] out_of_memory+0x20c/0x2b0
-[ 2180.310051] <0>-(0)[1505:init] __alloc_pages_nodemask+0xc20/0xe84
-[ 2180.310823] <0>-(0)[1505:init] wp_page_copy+0x98/0x558
-[ 2180.311473] <0>-(0)[1505:init] do_wp_page+0x110/0x524
-[ 2180.312111] <0>-(0)[1505:init] handle_pte_fault+0x108/0xa94
-[ 2180.312815] <0>-(0)[1505:init] handle_mm_fault+0x1dc/0x2b4
-[ 2180.313509] <0>-(0)[1505:init] do_page_fault+0x340/0x4c0
-[ 2180.314181] <0>-(0)[1505:init] do_mem_abort+0x5c/0xfc
-[ 2180.314820] <0>-(0)[1505:init] el0_da+0x1c/0x20
-[ 2180.315429] <0>.(0)[1505:init]Mem-Info:
-[ 2180.315925] <0>.(0)[1505:init]active_anon:365889 inactive_anon:4440 isolated_anon:0
-[ 2180.315925] <0> active_file:29 inactive_file:21 isolated_file:0
-[ 2180.315925] <0> unevictable:14806 dirty:0 writeback:0 unstable:0
-[ 2180.315925] <0> slab_reclaimable:5711 slab_unreclaimable:17948
-[ 2180.315925] <0> mapped:4025 shmem:4489 pagetables:1378 bounce:0
-[ 2180.315925] <0> free:1349 free_pcp:925 free_cma:0
-[ 2180.320509] <0>.(0)[1505:init]Node 0 active_anon:1463556kB inactive_anon:17760kB active_file:116kB inactive_file:84kB unevictable:59224kB isolated(anon):0kB isolated(file):0kB mapped:16100kB dirty:0kB writeback:0kB shmem:17956kB writeback_tmp:0kB unstable:0kB all_unreclaimable? yes
-[ 2180.323637] <0>DMA32 free:5396kB min:5480kB low:7356kB high:9232kB active_anon:1463548kB inactive_anon:17760kB active_file:24kB inactive_file:48kB unevictable:59224kB writepending:0kB present:1989564kB managed:1921600kB mlocked:0kB kernel_stack:4032kB pagetables:5512kB bounce:0kB free_pcp:3700kB local_pcp:1120kB free_cma:0kB
-[ 2180.327252] <0>.(0)[1505:init]lowmem_reserve[]: 0 0 0
-[ 2180.327893] <0>DMA32: 3*4kB (UME) 3*8kB (UME) 4*16kB (UME) 2*32kB (UE) 3*64kB (UME) 3*128kB (UME) 2*256kB (UE) 2*512kB (UM) 1*1024kB (E) 1*2048kB (M) 0*4096kB = 5348kB
-[ 2180.328356] <1>.(1)[115:kworker/u16:1][SCP] scp_ipi_send: SCP A not ready
-[ 2180.329792] <0>.(0)[1505:init]19317 total pagecache pages
-[ 2180.330637] <1>.(1)[115:kworker/u16:1][sensorHub] scp_ipi_send fail
-[ 2180.331315] <0>.(0)[1505:init]0 pages in swap cache
-[ 2180.332116] <1>.(1)[1264:kworker/1:1][sensorHub] scp_sensorHub_req_send fail!
-[ 2180.332720] <0>.(0)[1505:init]Swap cache stats: add 0, delete 0, find 0/0
-[ 2180.332722] <0>.(0)[1505:init]Free swap  = 0kB
-[ 2180.332723] <0>.(0)[1505:init]Total swap = 0kB
-[ 2180.332725] <0>.(0)[1505:init]497391 pages RAM
-[ 2180.332727] <0>.(0)[1505:init]0 pages HighMem/MovableOnly
-[ 2180.332729] <0>.(0)[1505:init]16991 pages reserved
-[ 2180.332731] <0>.(0)[1505:init]4096 pages cma reserved
-[ 2180.332735] <0>.(0)[1505:init]Tasks state (memory values in pages):
-[ 2180.338886] <0>.(0)[1505:init][  pid  ]   uid  tgid total_vm      rss pgtables_bytes swapents oom_score_adj name
-[ 2180.340236] <0>.(0)[1505:init][    279]     0   279  2693891     1572   196608        0         -1000 init
-[ 2180.341451] <0>.(0)[1505:init][    280]     0   280  2694030     1791   225280        0         -1000 ueventd
-[ 2180.342697] <0>.(0)[1505:init][    287]     0   287  2719037     1194   212992        0         -1000 logd
-[ 2180.343912] <0>.(0)[1505:init][    295]     0   295  2693854     1404   176128        0         -1000 hwservicemanage
-[ 2180.345253] <0>.(0)[1505:init][    296]     0   296  2693491     1056   167936        0         -1000 servicemanager
-[ 2180.346574] <0>.(0)[1505:init][    297]     0   297  2693285      901   155648        0         -1000 vndservicemanag
-[ 2180.347907] <0>.(0)[1505:init][    299]     0   299  2943076   366036  4440064        0         -1000 recovery
-[ 2180.349178] <0>.(0)[1505:init][    351]     0   351  2711108     1222   180224        0         -1000 adbd
-[ 2180.350413] <0>.(0)[1505:init][    416]     0   416  2692553      745   172032        0         -1000 sh
-[ 2180.351607] <0>.(0)[1505:init][   1505]     0  1505  2703098      496   233472        0         -1000 init
-[ 2180.352827] <0>.(0)[1505:init]Out of memory and no killable processes...
-[ 2180.353670] <0>-(0)[1505:init]Kernel panic - not syncing: System is deadlocked on memory
-[ 2180.353670] <0>
-[ 2180.354909] <0>-(0)[1505:init]SMP: stopping secondary CPUs
-[ 2181.355600] <0>-(0)[1505:init]SMP: failed to stop secondary CPUs 0,3
-[ 2182.380365] <0>-(0)[1505:init]Non-crashing 1 CPUs did not react to IPI
-[ 2183.427711] <0>-(0)[1505:init]Kernel Offset: 0x2f70a00000 from 0xffffff8008000000
-[ 2183.428655] <0>-(0)[1505:init]PHYS_OFFSET: 0xffffffd840000000
-[ 2183.429378] <0>-(0)[1505:init]Modules linked in:
-[ 2183.429969] <0>-(0)[1505:init]CPU: 0 PID: 1505 Comm: init Tainted: G        W         4.19.127-perf-g6ea809b #1
-[ 2183.431235] <0>-(0)[1505:init]Hardware name: MT6765G (DT)
-[ 2183.431915] <0>-(0)[1505:init]Call trace:
-[ 2183.432428] <0>-(0)[1505:init] dump_backtrace+0x0/0x164
-[ 2183.433086] <0>-(0)[1505:init] show_stack+0x20/0x2c
-[ 2183.433703] <0>-(0)[1505:init] dump_stack+0xb8/0xf0
-[ 2183.434322] <0>-(0)[1505:init] mrdump_common_die+0x174/0x22c
-[ 2183.435034] <0>-(0)[1505:init] ipanic+0xac/0xd8
-[ 2183.435609] <0>-(0)[1505:init] atomic_notifier_call_chain+0x50/0x88
-[ 2183.436398] <0>-(0)[1505:init] panic+0x13c/0x288
-[ 2183.436982] <0>-(0)[1505:init] out_of_memory+0x238/0x2b0
-[ 2183.437653] <0>-(0)[1505:init] __alloc_pages_nodemask+0xc20/0xe84
-[ 2183.438422] <0>-(0)[1505:init] wp_page_copy+0x98/0x558
-[ 2183.439069] <0>-(0)[1505:init] do_wp_page+0x110/0x524
-[ 2183.439706] <0>-(0)[1505:init] handle_pte_fault+0x108/0xa94
-[ 2183.440407] <0>-(0)[1505:init] handle_mm_fault+0x1dc/0x2b4
-[ 2183.441098] <0>-(0)[1505:init] do_page_fault+0x340/0x4c0
-[ 2183.441767] <0>-(0)[1505:init] do_mem_abort+0x5c/0xfc
-[ 2183.442404] <0>-(0)[1505:init] el0_da+0x1c/0x20
-[ 2183.443066] <0>-(0)[1505:init]mrdump: cpu[0] tsk:0xffffffe819cc8e80 ti:0xffffffe85badc000
-[ 2183.470834] <0>-(0)[1505:init]mrdump: add UFS:0xffffffaf7aee3e38 sz:0x0 failed
-[ 2183.471823] <0>-(0)[1505:init]mrdump: add CCCI:0xffffffe87a9a8000 sz:0x0 failed
-[ 2183.472744] <0>-(0)[1505:init]mrdump: add MD:0xffffffe87aa00000 sz:0x0 failed
-[ 2183.473742] <0>-(0)[1505:init]Kernel Offset: 0x2f70a00000 from 0xffffff8008000000
-[ 2183.474855] <0>-(0)[1505:init]PHYS_OFFSET: 0xffffffd840000000
-[ 2183.475758] <0>-(0)[1505:init]CPU features: 0x00000000,2080200c
-[ 2183.476662] <0>-(0)[1505:init]Memory Limit: none
-[ 2188.101994] <0>-(0)[1505:init]Rebooting in 1 seconds..
-[ 2189.104764] <0>-(0)[1505:init]SMP: stopping secondary CPUs
-[ 2192.454319] <0>-(0)[1505:init]SMP: failed to stop secondary CPUs 0-3
+[   78.651700] <0>-(0)[0:swapper/0]fg_update_routine_wakeup
+[   78.652568] <0>.(0)[252:battery_thread][coulomb_get]l:0xd3e7 h:0x9 val:314 msb:0 car:35
+[   78.653605] <0>.(0)[252:battery_thread][coulomb_get] CAR=35 r_fg_value=100 car_tune_value=1000
+[   78.655863] <0>.(0)[252:battery_thread][reg_to_current] 0x249 0x249 0x249 0x72e 0x72e 1
+[   78.657223] <0>.(0)[252:battery_thread][BattThermistorConverTemp] 79232 63187 78542 30 35 30
+[   78.658283] <0>.(0)[252:battery_thread][BattVoltToTemp] 787 100000 1789 -3
+[   78.659157] <0>.(0)[252:battery_thread][force_get_tbat_internal] 790,787,1,183,100,30 r:100 100 0
+[   78.662209] <0>.(0)[252:battery_thread][reg_to_current] 0x20d 0x20d 0x20d 0x672 0x672 1
+[   78.663239] <0>.(0)[252:battery_thread]car[35,486,-486,486,-474] tmp:30 soc:78 uisoc:80 vbat:4420 ibat:1650 algo:1 gm3:0 0 0 0,boot:2
+[   78.664744] <0>.(0)[252:battery_thread][fg_update_sw_iavg]diff time:69
+[   78.665781] <0>.(0)[252:battery_thread][coulomb_get]l:0xd65c h:0x9 val:314 msb:0 car:35
+[   78.666786] <0>.(0)[252:battery_thread][coulomb_get] CAR=35 r_fg_value=100 car_tune_value=1000
+[   78.667873] <0>.(0)[252:battery_thread][fg_update_sw_iavg]time:69 car:35 35 iavg:1826 ht:3845 lt:-2155 gap:3000
+[   78.669179] <0>.(0)[252:battery_thread][fg_bat_nafg][nafg_cnt_get] 0 [25_16 0 15_0 0]
+[   78.670164] <0>.(0)[252:battery_thread][fg_nafg_monitor]time:78 nafg_cnt:0, now:78, last_t:0
+[   78.671225] <0>.(0)[252:battery_thread][fg_drv_update_daemon]ui_ht_gap:486 ui_lt_gap:474 sw_iavg:1826 1826 0 nafg_m:0 0 0
+[   78.672600] <0>.(0)[252:battery_thread][wakeup_fg_algo_cmd] 0x2000000 1 0
+[   78.673466] <0>.(0)[252:battery_thread][do_fg_algo] intr_num=0x2000000
+[   78.676643] <0>.(0)[252:battery_thread][reg_to_current] 0x1dc 0x1dc 0x1dc 0x5d8 0x5d8 1
+[   78.678105] <0>.(0)[252:battery_thread][BattThermistorConverTemp] 79232 63187 78642 30 35 30
+[   78.679185] <0>.(0)[252:battery_thread][BattVoltToTemp] 788 100000 1790 -2
+[   78.680050] <0>.(0)[252:battery_thread][force_get_tbat_internal] 790,788,1,149,100,30 r:100 100 0
+[   78.681205] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:0 ret:0 val:1
+[   78.681212] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:42 ret:0 val:80
+[   78.682109] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:0 ret:0 val:1
+[   78.683047] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:0 ret:0 val:1
+[   78.683952] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:2 ret:0 val:1
+[   78.684873] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:3 ret:0 val:1
+[   78.685772] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:6 ret:0 val:3
+[   78.686670] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:7 ret:0 val:0
+[   78.687568] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:42 ret:0 val:80
+[   78.688639] <0>.(0)[14:kworker/0:1][reg_to_current] 0x1d6 0x1d6 0x1d6 0x5c5 0x5c5 1
+[   78.690532] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:17 ret:0 val:147700
+[   78.690712] <0>.(0)[14:kworker/0:1][reg_to_current] 0x1e0 0x1e0 0x1e0 0x5e4 0x5e4 1
+[   78.692632] <0>.(0)[252:battery_thread]battery_psy_get_property psp:18 ret:0 val:150800
+[   78.692647] <0>.(0)[252:battery_thread]battery_update_routine
+[   78.694402] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:12 ret:0 val:4415000
+[   78.694407] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:24 ret:0 val:5078000
+[   78.695381] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:117 ret:0 val:1
+[   78.696378] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:28 ret:0 val:4062400
+[   78.697948] <0>.(0)[14:kworker/0:1][reg_to_current] 0x1eb 0x1eb 0x1eb 0x607 0x607 1
+[   78.700222] <0>.(0)[14:kworker/0:1][BattThermistorConverTemp] 79232 63187 78542 30 35 30
+[   78.701254] <0>.(0)[14:kworker/0:1][BattVoltToTemp] 787 100000 1789 -3
+[   78.702076] <0>.(0)[14:kworker/0:1][force_get_tbat_internal] 790,787,1,154,100,30 r:100 100 0
+[   78.703147] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:46 ret:0 val:300
+[   78.703152] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:92 ret:0 val:75
+[   78.704083] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:45 ret:0 val:4
+[   78.705208] <0>.(0)[14:kworker/0:1][reg_to_current] 0x1ff 0x1ff 0x1ff 0x646 0x646 1
+[   78.707075] <0>.(0)[14:kworker/0:1]time_to_full:22765, remain:ui:20 mah:10156, current_now:1606, qmax:5078
+[   78.708286] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:56 ret:0 val:22765
+[   78.708289] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:22 ret:0 val:5000000
+[   78.709254] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:73 ret:0 val:1
+[   78.710230] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:219 ret:0 val:2
+[   78.711140] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:94 ret:0 val:328634
+[   78.712060] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:91 ret:0 val:0
+[   78.713060] <0>.(0)[14:kworker/0:1]battery_psy_get_property psp:33 ret:0 val:0
+[   78.713970] <2>.(2)[303:kworker/2:4]battery_psy_get_property psp:34 ret:0 val:0
+[   79.072911] <2>.(2)[303:kworker/2:4][Thermal/TC/TA][wakeup_ta_algo] status: 0x1000
+[   79.074796] <2>.(2)[303:kworker/2:4][Thermal/TC/TA][wakeup_ta_algo] error,g_tad_pid=0
+[   79.075794] <2>.(2)[303:kworker/2:4][Thermal/TZ/BTS]wakeup_ta_algo out of memory
+[   79.076748] <2>.(2)[55:kworker/2:1][Thermal/TZ/PMIC] [tsbuck1_raw_to_temp] 665, 387855, 1000000, -1863
+[   79.077945] <2>.(2)[55:kworker/2:1][Thermal/TZ/PMIC] [tsbuck1_raw_to_temp] t_current=30904
+[   79.078983] <2>.(2)[55:kworker/2:1][Thermal/TZ/PMIC] mt6357tsbuck1_get_hw_temp raw=665 T=30904
+[   79.080077] <2>.(2)[55:kworker/2:1][Thermal/TZ/PMIC] mt6357tsbuck1_get_hw_temp pre_tsbuck1_temp1=30904
+[   79.081601] <2>.(2)[249:kworker/2:2][Thermal/TZ/PMIC] [tsbuck2_raw_to_temp] 664, 388929, 1000000, -1863
+[   79.082781] <2>.(2)[249:kworker/2:2][Thermal/TZ/PMIC] [tsbuck2_raw_to_temp] t_current=32515
+[   79.083829] <2>.(2)[249:kworker/2:2][Thermal/TZ/PMIC] mt6357tsbuck2_get_hw_temp raw=664 T=32515
+[   79.084940] <2>.(2)[249:kworker/2:2][Thermal/TZ/PMIC] mt6357tsbuck2_get_hw_temp pre_tsbuck2_temp1=32515
+[   80.253697] <3>-(3)[299:recovery]mt635x_auxadc_read_raw: 13 callbacks suppressed
+[   80.253706] <3>.(3)[299:recovery]mt635x-auxadc mt635x-auxadc: name:BAT_TEMP, channel=3, adc_out=0x705, adc_result=789
+[   80.256173] <3>.(3)[299:recovery][reg_to_current] 0x25e 0x25e 0x25e 0x770 0x770 1
+[   80.257486] <3>.(3)[299:recovery]mt635x-auxadc mt635x-auxadc: name:VBIF, channel=11, adc_out=0xfef, adc_result=1792
+[   80.258799] <3>.(3)[299:recovery][BattThermistorConverTemp] 79232 63187 78364 30 35 30
+[   80.259793] <3>.(3)[299:recovery][BattVoltToTemp] 786 100000 1789 -3
+[   80.260593] <3>.(3)[299:recovery][force_get_tbat_internal] 789,786,1,190,100,30 r:100 100 0
+[   80.261661] <2>.(2)[0:swapper/2]battery_psy_get_property psp:46 ret:0 val:300
+[   82.028929] <2>.(2)[0:swapper/2][name:spm&]Power/swap DP: No enter --- SODI3: No enter --- SODI: No enter --- 
+[   82.028946] <2>.(2)[0:swapper/2]mcdi cpu: 1349, 0, 1350, 1240, 0, 0, 0, 0, cluster : 0, 0, pause = 0, multi core = 0, latency = 0, residency = 0, last core = 0, avail cpu = 000f, cluster = 0001, enabled = 1, max_s_state = 5, system_idle_hint = 00000000
+[   82.573203] <0>.(0)[1:init]init: starting service 'gatekeeper-1-0'...
+[   82.576149] <3>.(3)[672:init]init: cannot execv('/vendor/bin/hw/android.hardware.gatekeeper@1.0-service'). See the 'Debugging init' section of init's README.md for tips: No such file or directory
+[   82.576503] <0>.(0)[1:init]init: starting service 'keymaster-4-0'...
+[   82.581114] <2>.(2)[673:init]init: cannot execv('/vendor/bin/hw/android.hardware.keymaster@4.0-service.beanpod'). See the 'Debugging init' section of init's README.md for tips: No such file or directory
+[   82.581582] <0>.(0)[1:init]init: Service 'gatekeeper-1-0' (pid 672) exited with status 127
+[   82.584478] <0>.(0)[1:init]init: Sending signal 9 to service 'gatekeeper-1-0' (pid 672) process group...
+[   82.585963] <0>.(0)[1:init]libprocessgroup: Successfully killed process cgroup uid 0 pid 672 in 0ms
+[   82.587757] <2>.(2)[1:init]init: Service 'keymaster-4-0' (pid 673) exited with status 127
+[   82.588803] <2>.(2)[1:init]init: Sending signal 9 to service 'keymaster-4-0' (pid 673) process group...
+[   82.590181] <2>.(2)[1:init]libprocessgroup: Successfully killed process cgroup uid 0 pid 673 in 0ms
+[   84.193060] <2>.(2)[303:kworker/2:4][Thermal/TC/TA][wakeup_ta_algo] error,g_tad_pid=0
+[   84.194054] <2>.(2)[303:kworker/2:4][Thermal/TZ/BTS]wakeup_ta_algo out of memory
+[   84.195008] <2>.(2)[249:kworker/2:2]mt635x-auxadc mt635x-auxadc: name:VPROC_TEMP, channel=4, adc_out=0x5e9, adc_result=664
+[   84.196409] <2>.(2)[249:kworker/2:2][Thermal/TZ/PMIC] [tsbuck2_raw_to_temp] 664, 388929, 1000000, -1863
+[   84.197616] <2>.(2)[249:kworker/2:2][Thermal/TZ/PMIC] [tsbuck2_raw_to_temp] t_current=32515
+[   84.198665] <2>.(2)[249:kworker/2:2][Thermal/TZ/PMIC] mt6357tsbuck2_get_hw_temp raw=664 T=32515
+[   84.199758] <2>.(2)[249:kworker/2:2][Thermal/TZ/PMIC] mt6357tsbuck2_get_hw_temp pre_tsbuck2_temp1=32515
+[   84.201292] <2>.(2)[55:kworker/2:1]mt635x-auxadc mt635x-auxadc: name:VCORE_TEMP, channel=4, adc_out=0x5eb, adc_result=665
+[   84.202669] <2>.(2)[55:kworker/2:1][Thermal/TZ/PMIC] [tsbuck1_raw_to_temp] 665, 387855, 1000000, -1863
+[   84.203837] <2>.(2)[55:kworker/2:1][Thermal/TZ/PMIC] [tsbuck1_raw_to_temp] t_current=30904
+[   84.204894] <2>.(2)[55:kworker/2:1][Thermal/TZ/PMIC] mt6357tsbuck1_get_hw_temp raw=665 T=30904
+[   84.205977] <2>.(2)[55:kworker/2:1][Thermal/TZ/PMIC] mt6357tsbuck1_get_hw_temp pre_tsbuck1_temp1=30904

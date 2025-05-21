@@ -2,7 +2,7 @@
 
 source extract-paths.sh
 
-LOG_FILE=/sys/fs/pstore/console-ramoops-0
+LOG_FILE=/proc/last_kmsg
 
 pmbootstrap chroot apk add android-tools
 
@@ -14,3 +14,4 @@ sudo mv $PMWORK/chroot_native/home/pmos/full-kernel-trouble.txt /tmp
 source write-kernel-trouble.sh
 
 sudo pkill adb
+
