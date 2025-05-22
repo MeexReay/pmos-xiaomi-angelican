@@ -75,7 +75,7 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 
 ## Contacts
 
-If you want to develop it together, or maybe you have working port, please write me in discord: @themixray. Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
+If you want to develop it together, or maybe you have working port, please write me in discord: @meexreay. Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 
 ## Contributing
 

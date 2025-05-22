@@ -8,6 +8,7 @@ pkgs.mkShell {
     pmbootstrap
     android-tools
     git
+    less
   ];
 
   shellHook = ''
