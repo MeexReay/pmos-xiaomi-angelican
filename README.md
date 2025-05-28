@@ -26,40 +26,36 @@ ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 
 Firstly, you need to unlock bootloader (See section below).
 
-Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this commands:
+### Flash with prebuilt images
 
-### Flash prebuilt images
+Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this commands:
 
 ```bash
 cd prebuilt
 ./install.sh
 ```
 
-### Build manually
+### Flash manually
 
-1. Init images
+1. Build images
 
 ```bash
 pmbootstrap init
 pmbootstrap install
 ```
 
-2. Disable VerifiedBoot
+2. Disable VerifiedBoot and flash boot partition
+
+Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this commands:
 
 ```bash
 fastboot flash vbmeta prebuilt/vbmeta_disabled.img
 fastboot flash vbmeta_system prebuilt/vbmeta_disabled.img
 fastboot flash vbmeta_vendor prebuilt/vbmeta_disabled.img
-```
-
-3. Flash dtbo and boot
-
-```bash
 pmbootstrap flasher flash_kernel
-# pmbootstrap flasher flash_dtbo
 ```
 
-4. Flash system
+3. Flash system
 
 ```bash
 fastboot reboot fastboot
