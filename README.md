@@ -51,6 +51,26 @@ fastboot delete-logical-partition product
 pmbootstrap flasher flash_rootfs
 ```
 
+## How to flash stock firmware
+
+It is recommended to flash stock firmware before doing anything.
+
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) and unpack it
+
+### Windows
+
+1. Download [MiFlashTool](https://cdn.alsgp0.fds.api.mi-img.com/micomm/MiFlash2020-3-14-0.rar)
+2. Unpack firmware.tgz to some folder and copy its path
+3. Launch MiFlash.exe and paste the path of firmware folder to that lonely input entry
+4. Click refresh, then flash button
+5. That's all, close the window
+
+### Linux/MacOS
+
+Install Windows and follow the guide above
+
+TODO: Write how to do that on linux
+
 ## How to unlock bootloader
 
 ### Drivers
@@ -62,7 +82,7 @@ Install usb drivers:
 - [https://mtkdriver.com/](mtkdriver.com)
 - [https://github.com/daynix/usbdk/releases](usbdk)
 
-#### Linux
+#### Linux/MacOS
 
 TODO: write about usb drivers, but they seem to be preinstalled
 
