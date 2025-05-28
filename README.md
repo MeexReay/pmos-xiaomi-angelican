@@ -3,7 +3,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
 [![ru](https://img.shields.io/badge/lang-ru-green.svg)](README.ru.md)
 
-This port also might work on angelica (without NFC) and other phones on MT6765 processors.
+This port also might work on angelica (without NFC) and other phones on MT6765 processors (like Redmi 9A).
 
 ## Roadmap
 

@@ -3,7 +3,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
 [![ru](https://img.shields.io/badge/lang-ru-green.svg)](README.ru.md)
 
-Этот порт также может работать на angelica (без NFC) и других телефонах на MT6765 процессорах.
+Этот порт также может работать на angelica (без NFC) и других телефонах на MT6765 процессорах (как Redmi 9A).
 
 ## План
 
@@ -28,12 +28,27 @@ ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 
 Зайди в режим фастбута (зажми кнопку уменьшения громкости и кнопку выключения, пока телефон выключен), и введи эти команды:
 
+1. Отключить VerifiedBoot
+
 ```bash
-pmbootstrap init # если ты еще не инициализировался
-pmbootstrap install # если ты еще не сделал это
-pmbootstrap flasher flash_rootfs # подключи кабель ПОСЛЕ ввода
-pmbootstrap flasher flash_kernel # подключи кабель ПОСЛЕ ввода
-pmbootstrap chroot fastboot reboot # подключи кабель ПОСЛЕ ввода
+fastboot flash vbmeta prebuilt/vbmeta_disabled.img
+fastboot flash vbmeta_system prebuilt/vbmeta_disabled.img
+fastboot flash vbmeta_vendor prebuilt/vbmeta_disabled.img
+```
+
+2. Зафлешить dtbo и boot
+
+```bash
+pmbootstrap flasher flash_kernel
+pmbootstrap flasher flash_dtbo
+```
+
+3. Зафлешить system
+
+```bash
+fastboot reboot fastboot
+fastboot delete-logical-partition product
+pmbootstrap flasher flash_rootfs
 ```
 
 ## Как разблокировать бутлоадер
