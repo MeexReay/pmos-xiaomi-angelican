@@ -28,12 +28,27 @@ Firstly, you need to unlock bootloader (See section below).
 
 Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this commands:
 
+1. Disable VerifiedBoot
+
 ```bash
-pmbootstrap init # if you didnt init yet
-pmbootstrap install # if you havent done that yet
-pmbootstrap flasher flash_rootfs # connect usb cable AFTER running
-pmbootstrap flasher flash_kernel # connect usb cable AFTER running
-pmbootstrap chroot fastboot reboot # connect usb cable AFTER running
+fastboot flash vbmeta prebuilt/vbmeta_disabled.img
+fastboot flash vbmeta_system prebuilt/vbmeta_disabled.img
+fastboot flash vbmeta_vendor prebuilt/vbmeta_disabled.img
+```
+
+2. Flash dtbo and boot
+
+```bash
+pmbootstrap flasher flash_kernel
+pmbootstrap flasher flash_dtbo
+```
+
+3. Flash system
+
+```bash
+fastboot reboot fastboot
+fastboot delete-logical-partition product
+pmbootstrap flasher flash_rootfs
 ```
 
 ## How to unlock bootloader
@@ -68,6 +83,7 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 
 - [xiaomi angelican wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_NFC_(xiaomi-angelican))
 - [mtkclient](https://github.com/bkerler/mtkclient)
+- [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
 - [booting troubleshooting](https://wiki.postmarketos.org/wiki/Troubleshooting_on-device_issues/Booting_problems)
 - [coloredmarble/redmi_blossom](https://github.com/coloredmarble/redmi_blossom)
 - [xiaomi angelica wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_(xiaomi-angelica))

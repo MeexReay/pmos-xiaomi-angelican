@@ -68,6 +68,7 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 
 - [xiaomi angelican wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_NFC_(xiaomi-angelican))
 - [mtkclient](https://github.com/bkerler/mtkclient)
+- [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
 - [booting troubleshooting](https://wiki.postmarketos.org/wiki/Troubleshooting_on-device_issues/Booting_problems)
 - [coloredmarble/redmi_blossom](https://github.com/coloredmarble/redmi_blossom)
 - [xiaomi angelica wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_(xiaomi-angelica))
