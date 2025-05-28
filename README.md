@@ -111,13 +111,16 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 # i did it with test point, but it isnt required
 ```
 
-## Dev notes
+## Debugging
 
 Initramfs inspecting works!
+Press vol- button and try this command:
 
 ```bash
 picocom -b 115200 /dev/ttyACM0
 ```
+
+[More about that](https://wiki.postmarketos.org/wiki/Initramfs/Inspecting#Using_the_debug_shell)
 
 ## See also
 
