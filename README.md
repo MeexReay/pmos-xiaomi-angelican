@@ -28,7 +28,23 @@ Firstly, you need to unlock bootloader (See section below).
 
 Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this commands:
 
-1. Disable VerifiedBoot
+### Flash prebuilt images
+
+```bash
+cd prebuilt
+./install.sh
+```
+
+### Build manually
+
+1. Init images
+
+```bash
+pmbottstrap init
+pmbootstrap install
+```
+
+2. Disable VerifiedBoot
 
 ```bash
 fastboot flash vbmeta prebuilt/vbmeta_disabled.img
@@ -36,14 +52,14 @@ fastboot flash vbmeta_system prebuilt/vbmeta_disabled.img
 fastboot flash vbmeta_vendor prebuilt/vbmeta_disabled.img
 ```
 
-2. Flash dtbo and boot
+3. Flash dtbo and boot
 
 ```bash
 pmbootstrap flasher flash_kernel
-pmbootstrap flasher flash_dtbo
+# pmbootstrap flasher flash_dtbo
 ```
 
-3. Flash system
+4. Flash system
 
 ```bash
 fastboot reboot fastboot
