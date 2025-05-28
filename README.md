@@ -58,9 +58,9 @@ pmbootstrap flasher flash_kernel
 3. Flash system
 
 ```bash
-fastboot reboot fastboot
-fastboot delete-logical-partition product
-pmbootstrap flasher flash_rootfs
+fastboot reboot fastboot # enter fastbootd mode
+fastboot delete-logical-partition product # make system partition bigger
+pmbootstrap flasher flash_rootfs # flash system
 ```
 
 ## How to flash stock firmware
