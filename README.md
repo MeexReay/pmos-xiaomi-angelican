@@ -40,7 +40,7 @@ cd prebuilt
 1. Init images
 
 ```bash
-pmbottstrap init
+pmbootstrap init
 pmbootstrap install
 ```
 
