@@ -117,7 +117,8 @@ Initramfs inspecting works!
 Press vol- button and try this command:
 
 ```bash
-picocom -b 115200 /dev/ttyACM0
+telnet 172.16.42.1
+# picocom -b 115200 /dev/ttyACM0
 ```
 
 [More about that](https://wiki.postmarketos.org/wiki/Initramfs/Inspecting#Using_the_debug_shell)
