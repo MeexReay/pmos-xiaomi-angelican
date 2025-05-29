@@ -7,7 +7,6 @@ deviceinfo_name="Xiaomi Redmi 9C NFC"
 deviceinfo_manufacturer="Xiaomi"
 deviceinfo_codename="xiaomi-angelican"
 deviceinfo_year="2020"
-deviceinfo_dtb="mediatek/merged"
 deviceinfo_arch="aarch64"
 
 # Device related
@@ -19,21 +18,19 @@ deviceinfo_screen_height="1600"
 
 # Bootloader related
 deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 androidboot.init_fatal_reboot_target=recovery buildvariant=userdebug kpti=off"
-# deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 buildvariant=user"
-# deviceinfo_create_initfs_extra="true"
-deviceinfo_flash_method="fastboot"
-deviceinfo_flash_sparse="true"
+# deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 buildvariant=user" # default kernel cmdline
+# deviceinfo_create_initfs_extra="true" # make extra space for initfs
 deviceinfo_bootimg_mtk_mkimage="false"
 deviceinfo_bootimg_qcdt="false"
-deviceinfo_bootimg_dtb_second="false"
 
 # Flashing related
-deviceinfo_flash_fastboot_partition_dtbo="dtbo"
+deviceinfo_flash_method="fastboot"
+deviceinfo_flash_sparse="true"
+deviceinfo_flash_fastboot_partition_rootfs="userdata"
 deviceinfo_generate_bootimg="true"
-deviceinfo_flash_fastboot_partition_rootfs="system"
+
+# Offsets
 deviceinfo_flash_pagesize="2048"
-deviceinfo_header_version="2"
-deviceinfo_append_dtb="false"
 deviceinfo_flash_offset_dtb="0x07808000"
 deviceinfo_flash_offset_base="0x40078000"
 deviceinfo_flash_offset_kernel="0x00008000"
@@ -41,4 +38,14 @@ deviceinfo_flash_offset_ramdisk="0x11a88000"
 deviceinfo_flash_offset_second="0xbff88000"
 deviceinfo_flash_offset_tags="0x07808000"
 
+# dtb
+deviceinfo_dtb="mediatek/merged"
+deviceinfo_append_dtb="false"
+# deviceinfo_flash_fastboot_partition_dtbo="dtbo" # use prebuilt dtbo.img! for some reason pmbootstrap cant make it
+deviceinfo_bootimg_dtb_second="false"
 
+# remove ncm error
+deviceinfo_usb_network_function="rndis.usb0"
+
+# enable debug-shell
+deviceinfo_kernel_cmdline_append="pmos.debug-shell"
