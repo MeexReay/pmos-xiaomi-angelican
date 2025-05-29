@@ -7,7 +7,7 @@ If you want to develop it together, or maybe you have a working port, please wri
 
 - [x] Kernel compiling
 - [x] Kernel booting
-- [ ] PMOS booting
+- [ ] PMOS booting (see issues)
 - [ ] ...
 
 ## How to install
@@ -112,12 +112,14 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 
 ## Debugging
 
-Initramfs inspecting works!
-Press vol- button and try this command:
+Initramfs inspecting works! Run this script:
 
 ```bash
+./debug-shell.sh
+# or
+picocom -b 115200 /dev/ttyACM0
+# or
 telnet 172.16.42.1
-# picocom -b 115200 /dev/ttyACM0
 ```
 
 [More about that](https://wiki.postmarketos.org/wiki/Initramfs/Inspecting#Using_the_debug_shell)
