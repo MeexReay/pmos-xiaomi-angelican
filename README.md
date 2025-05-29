@@ -22,11 +22,12 @@ ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 
 ## How to flash
 
-Firstly, you need to unlock bootloader (See section below).
+Firstly, you need to unlock bootloader [(See section below)](#How_to_unlock_bootloader). \
+If you have already manipulated partitions, it is recommended to [flash MIUI back](#How_to_flash_stock_firmware), and flash PMOS above it.
 
 ### Flash with prebuilt images
 
-Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this commands:
+Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this command:
 
 ```bash
 cd prebuild && ./flash.sh
