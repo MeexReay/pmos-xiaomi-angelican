@@ -1,9 +1,7 @@
 # PostmarketOS for Xiaomi Angelican (Redmi 9C NFC)
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
-[![ru](https://img.shields.io/badge/lang-ru-green.svg)](README.ru.md)
-
 This port also might work on angelica (without NFC) and other phones on MT6765 processors (like Redmi 9A).
+If you want to develop it together, or maybe you have a working port, please write me in discord: @meexreay. Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 
 ## Roadmap
 
@@ -31,8 +29,7 @@ Firstly, you need to unlock bootloader (See section below).
 Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this commands:
 
 ```bash
-cd prebuilt
-./install.sh
+cd prebuild && ./flash.sh
 ```
 
 ### Flash manually
@@ -52,6 +49,7 @@ Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this c
 fastboot flash vbmeta prebuilt/vbmeta_disabled.img
 fastboot flash vbmeta_system prebuilt/vbmeta_disabled.img
 fastboot flash vbmeta_vendor prebuilt/vbmeta_disabled.img
+pmbootstrap flasher flash_dtbo
 pmbootstrap flasher flash_kernel
 ```
 
@@ -132,10 +130,6 @@ telnet 172.16.42.1
 - [coloredmarble/redmi_blossom](https://github.com/coloredmarble/redmi_blossom)
 - [xiaomi angelica wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_(xiaomi-angelica))
 - [xiaomi dandelion wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9A_(xiaomi-dandelion))
-
-## Contacts
-
-If you want to develop it together, or maybe you have working port, please write me in discord: @meexreay. Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 
 ## Contributing
 
