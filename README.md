@@ -22,8 +22,8 @@ ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 
 ## How to flash
 
-Firstly, you need to unlock bootloader [(See section below)](#How_to_unlock_bootloader). \
-If you have already manipulated partitions, it is recommended to [flash MIUI back](#How_to_flash_stock_firmware), and flash PMOS above it.
+Firstly, you need to unlock bootloader [(See section below)](https://github.com/MeexReay/pmos-xiaomi-angelican?tab=readme-ov-file#how-to-unlock-bootloader). \
+If you have already manipulated partitions, it is recommended to [flash MIUI back](https://github.com/MeexReay/pmos-xiaomi-angelican?tab=readme-ov-file#how-to-flash-stock-firmware), and flash PMOS above it.
 
 ### Flash with prebuilt images
 
