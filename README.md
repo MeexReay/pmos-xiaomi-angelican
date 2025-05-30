@@ -7,9 +7,11 @@ If you want to develop it together, or maybe you have a working port, please wri
 
 - [x] Kernel compiling
 - [x] Kernel booting
-- [ ] PMOS booting (see issues)
+- [x] Debug shell (see Debugging section)
+- [x] Display + logo
+- [ ] PMOS booting
 - [ ] ...
-
+ 
 ## How to install
 
 ```bash
