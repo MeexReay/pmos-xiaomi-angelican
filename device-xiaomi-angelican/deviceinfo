@@ -48,4 +48,4 @@ deviceinfo_bootimg_dtb_second="false"
 deviceinfo_usb_network_function="rndis.usb0"
 
 # enable debug-shell
-deviceinfo_kernel_cmdline_append="pmos.debug-shell"
+# deviceinfo_kernel_cmdline_append="pmos.debug-shell"

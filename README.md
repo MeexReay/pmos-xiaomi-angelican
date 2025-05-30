@@ -7,9 +7,11 @@ If you want to develop it together, or maybe you have a working port, please wri
 
 - [x] Kernel compiling
 - [x] Kernel booting
-- [x] Debug shell (see Debugging section)
-- [x] Display + logo
-- [ ] PMOS booting
+- [x] Debug shell
+- [x] Framebuffer + boot logo
+- [x] PMOS booting
+- [x] SSH (use `ssh 172.16.41.1`)
+- [ ] UI loading
 - [ ] ...
  
 ## How to install
@@ -34,6 +36,9 @@ Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this c
 ```bash
 cd prebuild && ./flash.sh
 ```
+
+Password: 1234
+UI: surprise
 
 ### Flash manually
 
@@ -60,15 +65,20 @@ pmbootstrap flasher flash_kernel
 
 ```bash
 fastboot reboot fastboot # enter fastbootd mode
-fastboot delete-logical-partition product # make system partition bigger
 pmbootstrap flasher flash_rootfs # flash system
+```
+
+4. Reboot
+
+```bash
+fastboot reboot
 ```
 
 ## How to flash stock firmware
 
 It is recommended to flash stock firmware before doing anything.
 
-[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) and unpack it
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
 
 ### Windows
 
@@ -108,23 +118,9 @@ pip -r install requirements.txt
 git clone https://github.com/coloredmarble/redmi_9a_mtkclient
 cp redmi_9a_mtkclient/* .
 python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.bin
-# power off phone, hold vol+ and vol- at same time and connect usb cable
+# power off the phone, hold vol+ and vol- at same time and connect usb cable
 # i did it with test point, but it isnt required
 ```
-
-## Debugging
-
-Initramfs inspecting works! Run this script:
-
-```bash
-./debug-shell.sh
-# or
-picocom -b 115200 /dev/ttyACM0
-# or
-telnet 172.16.42.1
-```
-
-[More about that](https://wiki.postmarketos.org/wiki/Initramfs/Inspecting#Using_the_debug_shell)
 
 ## See also
 
