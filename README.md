@@ -10,7 +10,7 @@ If you want to develop it together, or maybe you have a working port, please wri
 - [x] Debug shell
 - [x] Framebuffer + boot logo
 - [x] PMOS booting
-- [x] SSH (use `ssh 172.16.41.1`)
+- [x] SSH (use `ssh 172.16.42.1`)
 - [ ] UI loading
 - [ ] ...
  
