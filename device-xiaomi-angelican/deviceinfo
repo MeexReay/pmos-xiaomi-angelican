@@ -49,3 +49,6 @@ deviceinfo_usb_network_function="rndis.usb0"
 
 # enable debug-shell
 deviceinfo_kernel_cmdline_append="pmos.debug-shell"
+
+# disable framebuffer
+deviceinfo_no_framebuffer="true"
