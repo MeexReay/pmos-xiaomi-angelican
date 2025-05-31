@@ -8,6 +8,7 @@ deviceinfo_manufacturer="Xiaomi"
 deviceinfo_codename="xiaomi-angelican"
 deviceinfo_year="2020"
 deviceinfo_arch="aarch64"
+deviceinfo_gpu_accelerated="false"
 
 # Device related
 deviceinfo_chassis="handset"
