@@ -12,7 +12,6 @@ depends="
 	mkbootimg
 	postmarketos-base
 	msm-fb-refresher
-	postmarketos-base-mesa
 "
 makedepends="devicepkg-dev"
 source="

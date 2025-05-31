@@ -1,7 +1,6 @@
 # PostmarketOS for Xiaomi Angelican (Redmi 9C NFC)
 
 This port also might work on angelica (without NFC) and other phones on MT6765 processors (like Redmi 9A).
-If you want to develop it together, or maybe you have a working port, please write me in discord/telegram: @meexreay. Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 
 ## Roadmap
 
@@ -11,11 +10,12 @@ If you want to develop it together, or maybe you have a working port, please wri
 - [x] Framebuffer + boot logo
 - [x] PMOS booting
 - [x] SSH (use `ssh 172.16.42.1`)
-- [x] X11 loading
-- [ ] Wayland loading
-- [ ] ...
+- [x] Display + Toucscreen (i3wm works) 
+- [ ] Built-in llvmpipe
  
 ## How to install
+
+Run these commands to add the device to pmaports:
 
 ```bash
 git clone https://github.com/MeexReay/pmos-xiaomi-angelican.git
@@ -25,92 +25,26 @@ ln -s $PWD/linux-xiaomi-angelican $PMAPORTS/device/testing
 ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 ```
 
-## How to flash
+## How to prepare a phone
 
-Firstly, you need to unlock bootloader [(See section below)](https://github.com/MeexReay/pmos-xiaomi-angelican?tab=readme-ov-file#how-to-unlock-bootloader). \
-If you have already manipulated partitions, it is recommended to [flash MIUI back](https://github.com/MeexReay/pmos-xiaomi-angelican?tab=readme-ov-file#how-to-flash-stock-firmware), and flash PMOS above it.
+### Unlock bootloader
 
-### Flash with prebuilt images
+Here is described the unofficial method with mtkclient
 
-Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this command:
+#### Drivers
 
-```bash
-cd prebuild && ./flash.sh
-```
-
-Password: 1234
-UI: surprise
-
-### Flash manually
-
-1. Build images
-
-```bash
-pmbootstrap init
-pmbootstrap install
-```
-
-2. Disable VerifiedBoot and flash boot partition
-
-Enter fastboot mode (hold vol- and pwr buttons while turned off), and run this commands:
-
-```bash
-fastboot flash vbmeta prebuilt/vbmeta_disabled.img
-fastboot flash vbmeta_system prebuilt/vbmeta_disabled.img
-fastboot flash vbmeta_vendor prebuilt/vbmeta_disabled.img
-pmbootstrap flasher flash_dtbo
-pmbootstrap flasher flash_kernel
-```
-
-3. Flash system
-
-```bash
-fastboot reboot fastboot # enter fastbootd mode
-pmbootstrap flasher flash_rootfs # flash system
-```
-
-4. Reboot
-
-```bash
-fastboot reboot
-```
-
-## How to flash stock firmware
-
-It is recommended to flash stock firmware before doing anything.
-
-[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
-
-### Windows
-
-1. Download [MiFlashTool](https://cdn.alsgp0.fds.api.mi-img.com/micomm/MiFlash2020-3-14-0.rar)
-2. Unpack firmware.tgz to some folder and copy its path
-3. Launch MiFlash.exe and paste the path of firmware folder to that lonely input entry
-4. Click refresh, then flash button
-5. That's all, close the window
-
-### Linux/MacOS
-
-Install Windows and follow the guide above
-
-TODO: Write how to do that on linux
-
-## How to unlock bootloader
-
-### Drivers
-
-#### Windows
+- **For Windows:**
 
 Install usb drivers:
 
 - [https://mtkdriver.com/](mtkdriver.com)
 - [https://github.com/daynix/usbdk/releases](usbdk)
 
-#### Linux/MacOS
+- **For Linux/MacOS:**
 
 TODO: write about usb drivers, but they seem to be preinstalled
 
-### Unlocking
+#### Unlocking
 
 ```bash
 git clone https://github.com/bkerler/mtkclient
@@ -120,7 +54,62 @@ git clone https://github.com/coloredmarble/redmi_9a_mtkclient
 cp redmi_9a_mtkclient/* .
 python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.bin
 # power off the phone, hold vol+ and vol- at same time and connect usb cable
-# i did it with test point, but it isnt required
+# i did it with test point, but it isnt required at all
+```
+
+### Flash stock firmware
+
+It is recommended to flash stock firmware before doing anything.
+
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
+
+- **For Windows:**
+
+1. Download [MiFlashTool](https://cdn.alsgp0.fds.api.mi-img.com/micomm/MiFlash2020-3-14-0.rar)
+2. Unpack firmware.tgz to some folder and copy its path
+3. Launch MiFlash.exe and paste the path of firmware folder to that lonely input entry
+4. Click refresh, then flash button
+5. That's all, close the window
+
+- **For Linux/MacOS:**
+
+Install Windows and follow the guide above
+
+TODO: Write how to do that on linux
+
+### Disable vbmeta
+
+```bash
+fastboot flash vbmeta vbmeta_disabled.img
+fastboot flash vbmeta_system vbmeta_disabled.img
+fastboot flash vbmeta_vendor vbmeta_disabled.img
+```
+
+## How to flash
+
+1. Build images
+
+```bash
+pmbootstrap init
+pmbootstrap install
+```
+
+2. Flash partitions
+
+Enter fastboot mode (hold vol- and pwr buttons while turned off), and run these commands:
+
+```bash
+pmbootstrap flasher flash_kernel # flash kernel to boot
+fastboot reboot fastboot # enter fastbootd mode
+pmbootstrap flasher flash_rootfs # flash rootfs to userdata
+# in some cases its good to flash rootfs to system partition too:
+# pmbootstrap flasher flash_rootfs --partition system
+```
+
+3. Reboot
+
+```bash
+fastboot reboot
 ```
 
 ## See also
