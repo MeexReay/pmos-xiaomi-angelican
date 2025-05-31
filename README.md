@@ -115,6 +115,7 @@ fastboot reboot
 ## See also
 
 - [xiaomi angelican wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_NFC_(xiaomi-angelican))
+- [orangefox recovery](https://orangefox.download/device/61f1325a775bca54ef3bf25f)
 - [mtkclient](https://github.com/bkerler/mtkclient)
 - [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
 - [booting troubleshooting](https://wiki.postmarketos.org/wiki/Troubleshooting_on-device_issues/Booting_problems)
