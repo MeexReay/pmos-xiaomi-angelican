@@ -44,13 +44,17 @@ prepare() {
 
 build() {
 	unset LDFLAGS
-	make O="$_outdir" ARCH="$_carch" CC="${CC:-gcc}" \
-		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-postmarketOS"
+  make O="$_outdir" ARCH="$_carch" CC="${CC:-gcc}" \
+    KBUILD_BUILD_VERSION="$((pkgrel + 1))-mainline" \
+    olddefconfig
+
+  make O="$_outdir" ARCH="$_carch" CC="${CC:-gcc}" \
+    Image dtbs modules
 }
 
 package() {
-	downstreamkernel_package "$builddir" "$pkgdir" "$_carch" \
-		"$_flavor" "$_outdir"
+	install -Dm644 "$_outdir/arch/$_carch/boot/Image" \
+    "$pkgdir/boot/vmlinuz-$_flavor"
 
 	make dtbs_install O="$_outdir" ARCH="$_carch" \
 		INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs
@@ -64,5 +68,5 @@ package() {
 
 sha512sums="
 0d7d6a977b1c833459169e2add25888c2c2e75fb094a6201cbd87a925cdfd30765fff9570b6d19988c7ca1c9f30f509f81c5084f3786ac25876dfc67c6090da1  linux-xiaomi-angelican-44ef20baed8edcb1799bec1e7ad2debbc93eedd8.tar.gz
-3ccdb16a047ebbfcaae24a15fdae58470490293e77633677434022696c4efbfc7d1a44ffc9b76a567ae73a18392ad651a57e3d35cb1c76adf4d267c0b2090495  config-xiaomi-angelican.aarch64
+ea5216e4da815504926ae7a05507815a05fc413edc52be4ea06539439dac793558fb413bee4913100a9697c298394f82275dddbdb1fcce94a40eb8705a1e1d78  config-xiaomi-angelican.aarch64
 "
