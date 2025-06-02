@@ -4,13 +4,13 @@ This port also might work on angelica (without NFC) and other phones on MT6765 p
 
 ## Roadmap
 
-- [x] Kernel compiling
-- [x] Kernel booting
-- [x] Debug shell
-- [x] Framebuffer + boot logo
-- [x] PMOS booting
-- [x] SSH (use `ssh 172.16.42.1`)
-- [x] Display + Toucscreen (i3wm works) 
+- [ ] Kernel compiling
+- [ ] Kernel booting
+- [ ] Debug shell
+- [ ] Framebuffer + boot logo
+- [ ] PMOS booting
+- [ ] SSH (using of `ssh 172.16.42.1`)
+- [ ] Display + Touchscreen 
 - [ ] Built-in llvmpipe
  
 ## How to install

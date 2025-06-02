@@ -11,8 +11,8 @@ depends="
 	linux-xiaomi-angelican
 	mkbootimg
 	postmarketos-base
-	msm-fb-refresher
 "
+# msm-fb-refresher
 makedepends="devicepkg-dev"
 source="
 	deviceinfo
