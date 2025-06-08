@@ -1,6 +1,8 @@
 # PostmarketOS for Xiaomi Angelican (Redmi 9C NFC)
 
 This port also might work on angelica (without NFC) and other phones on MT6765 processors (like Redmi 9A).
+If you want to develop it together, or maybe you have a working port, please write me in discord/telegram: @meexreay. 
+Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 
 ## Roadmap
 
