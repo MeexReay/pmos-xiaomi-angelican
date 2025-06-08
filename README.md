@@ -129,6 +129,7 @@ fastboot reboot
 - [xiaomi dandelion wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9A_(xiaomi-dandelion))
 - [postmarket redmi 9a](https://github.com/SheatNoisette/postmarket_redmi_9a)
 - [linux on redmi 9c/9a in telegram](https://t.me/linux_garden)
+- [4pda topic about redmi 9c nfc](https://4pda.to/forum/index.php?showtopic=1012866)
 
 ## Contributing
 
