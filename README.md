@@ -1,17 +1,19 @@
 # PostmarketOS for Xiaomi Angelican (Redmi 9C NFC)
 
 This port also might work on angelica (without NFC) and other phones on MT6765 processors (like Redmi 9A).
+If you want to develop it together, or maybe you have a working port, please write me in discord/telegram: [@meexreay](https://meexreay.t.me). 
+Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 
 ## Roadmap
 
 - [x] Kernel compiling
 - [x] Kernel booting
 - [x] Debug shell
-- [x] Framebuffer + boot logo
-- [x] PMOS booting
+- [x] Loading logo
+- [x] PMOS starting
 - [x] SSH (use `ssh 172.16.42.1`)
 - [x] Display + Toucscreen (i3wm works) 
-- [ ] Built-in llvmpipe
+- [ ] Framebuffer and UI
  
 ## How to install
 
@@ -157,10 +159,15 @@ fastboot reboot
 - [orangefox recovery](https://orangefox.download/device/61f1325a775bca54ef3bf25f)
 - [mtkclient](https://github.com/bkerler/mtkclient)
 - [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
-- [booting troubleshooting](https://wiki.postmarketos.org/wiki/Troubleshooting_on-device_issues/Booting_problems)
-- [coloredmarble/redmi_blossom](https://github.com/coloredmarble/redmi_blossom)
+- [ubports community redmi 9c](https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c)
+- [mt6765 wiki](https://wiki.postmarketos.org/wiki/MediaTek_Helio_P35_(MT6765))
+- [mtkclient redmi loader](https://github.com/coloredmarble/redmi_blossom)
+- [working mt6765 port (lg-mmh4x)](https://wiki.postmarketos.org/wiki/LG_K40_AT%26T_(lg-mmh4x))
 - [xiaomi angelica wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_(xiaomi-angelica))
 - [xiaomi dandelion wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9A_(xiaomi-dandelion))
+- [postmarket redmi 9a](https://github.com/SheatNoisette/postmarket_redmi_9a)
+- [linux on redmi 9c/9a in telegram](https://t.me/linux_garden)
+- [4pda topic about redmi 9c nfc](https://4pda.to/forum/index.php?showtopic=1012866)
 
 ## Contributing
 
