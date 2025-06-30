@@ -33,24 +33,22 @@ ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 
 Here is described the unofficial method with mtkclient
 
-#### Dependencies
-
-- **For Windows:**
+#### Install dependencies (Windows)
 
 Install usb drivers:
-
+  
 - [https://mtkdriver.com/](mtkdriver.com)
 - [https://github.com/daynix/usbdk/releases](usbdk)
 
-- **For Linux/MacOS:**
-
+#### Install dependencies (Linux/MacOS)
+ 
 Install libraries:
-
+  
 - libusb / libusb1
 - fuse2 / libfuse2
-
+ 
 Install rules:
-
+  
 ```bash
 git clone https://github.com/bkerler/mtkclient
 cd mtkclient
@@ -60,12 +58,10 @@ sudo cp mtkclient/Setup/Linux/*.rules /etc/udev/rules.d
 sudo udevadm control -R
 sudo udevadm trigger
 ```
-
+ 
 Then reboot.
 
-#### Unlocking
-
-- Run these commands:
+#### Prepare mtkclient
 
 ```bash
 git clone https://github.com/bkerler/mtkclient
@@ -75,18 +71,27 @@ source .venv/bin/activate
 pip install -r requirements.txt
 git clone https://github.com/coloredmarble/redmi_9a_mtkclient
 cp redmi_9a_mtkclient/* .
+```
+
+#### Prepare mtkclient (NixOS)
+
+```bash
+git clone https://github.com/bkerler/mtkclient
+cd mtkclient
+git clone https://github.com/MeexReay/mtkclient-angelican
+cp mtkclient-angelican/* .
+nix-shell
+```
+
+#### Unlock
+
+- Run this command:
+
+```bash
 python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.bin
 ```
 
-**For NixOS:**
-
-```bash
-git clone https://github.com/bkerler/mtkclient; cd mtkclient
-git clone https://github.com/MeexReay/mtkclient-angelican; cp mtkclient-angelican/* .
-nix-shell --command "python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.bin"
-```
-
-- Power off the phone, hold vol+ and vol- at same time and connect usb cable
+- Power off the phone, hold `Volume Up` and `Volume Down` buttons at the same time and connect usb cable
 
 ### Flash stock firmware
 
