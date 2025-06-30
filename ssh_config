@@ -1,6 +1,0 @@
-Host pmos
-	HostName 172.16.42.1
-	User user
-    StrictHostKeyChecking no
-	ServerAliveInterval 3
-	ConnectTimeout 60

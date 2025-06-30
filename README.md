@@ -31,7 +31,7 @@ ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 
 Here is described the unofficial method with mtkclient
 
-#### Drivers
+#### Dependencies
 
 - **For Windows:**
 
@@ -42,20 +42,49 @@ Install usb drivers:
 
 - **For Linux/MacOS:**
 
-TODO: write about usb drivers, but they seem to be preinstalled
+Install libraries:
 
-#### Unlocking
+- libusb / libusb1
+- fuse2 / libfuse2
+
+Install rules:
 
 ```bash
 git clone https://github.com/bkerler/mtkclient
 cd mtkclient
-pip -r install requirements.txt
+sudo usermod -a -G plugdev $USER
+sudo usermod -a -G dialout $USER
+sudo cp mtkclient/Setup/Linux/*.rules /etc/udev/rules.d
+sudo udevadm control -R
+sudo udevadm trigger
+```
+
+Then reboot.
+
+#### Unlocking
+
+- Run these commands:
+
+```bash
+git clone https://github.com/bkerler/mtkclient
+cd mtkclient
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 git clone https://github.com/coloredmarble/redmi_9a_mtkclient
 cp redmi_9a_mtkclient/* .
 python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.bin
-# power off the phone, hold vol+ and vol- at same time and connect usb cable
-# i did it with test point, but it isnt required at all
 ```
+
+**For NixOS:**
+
+```bash
+git clone https://github.com/bkerler/mtkclient; cd mtkclient
+git clone https://github.com/MeexReay/mtkclient-angelican; cp mtkclient-angelican/* .
+nix-shell --command "python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.bin"
+```
+
+- Power off the phone, hold vol+ and vol- at same time and connect usb cable
 
 ### Flash stock firmware
 
@@ -83,6 +112,16 @@ TODO: Write how to do that on linux
 fastboot flash vbmeta vbmeta_disabled.img
 fastboot flash vbmeta_system vbmeta_disabled.img
 fastboot flash vbmeta_vendor vbmeta_disabled.img
+```
+
+### Flash the recovery
+
+[Orangefox recovery page](https://orangefox.download/device/61f1325a775bca54ef3bf25f)
+
+```bash
+curl -o recovery.zip https://dl.orangefox.download/62bb16c36a44bc738419d9bb
+unzip recovery.zip recovery.img
+fastboot flash recovery recovery.img
 ```
 
 ## How to flash
