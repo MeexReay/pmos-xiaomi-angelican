@@ -93,27 +93,39 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 
 - Power off the phone, hold `Volume Up` and `Volume Down` buttons at the same time and connect usb cable
 
-### Flash stock firmware
+### Flash stock firmware (Windows)
 
 It is recommended to flash stock firmware before doing anything.
 
 [Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
 
-- **For Windows:**
-
 1. Download [MiFlashTool](https://cdn.alsgp0.fds.api.mi-img.com/micomm/MiFlash2020-3-14-0.rar)
 2. Unpack firmware.tgz to some folder and copy its path
 3. Launch MiFlash.exe and paste the path of firmware folder to that lonely input entry
-4. Click refresh, then flash button
-5. That's all, close the window
+4. Connect the phone in fastboot mode (not fastbootd)
+5. Click refresh, then flash button
+6. That's all, close the window
 
-- **For Linux/MacOS:**
+### Flash stock firmware (Linux/MacOS)
 
-Install Windows and follow the guide above
+It is recommended to flash stock firmware before doing anything.
 
-TODO: Write how to do that on linux
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
+
+1. Open the firmware directory in console
+2. Remove flashing your vbmeta and recovery partitions (optional):
+
+```bash
+sed -i '/flash vbmeta/d;/flash recovery/d' flash_all.sh
+```
+
+3. Connect the phone in fastboot mode (not fastbootd)
+4. Run `./flash_all.sh`
+5. That's all, close the console
 
 ### Disable vbmeta
+
+Got the image from here: [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
 
 ```bash
 fastboot flash vbmeta vbmeta_disabled.img
