@@ -133,14 +133,21 @@ fastboot flash vbmeta_system vbmeta_disabled.img
 fastboot flash vbmeta_vendor vbmeta_disabled.img
 ```
 
-### Flash the recovery
+### Flash recovery
+
+It is strongly recommended to flash the recovery.
 
 [Orangefox recovery page](https://orangefox.download/device/61f1325a775bca54ef3bf25f)
+[Download recovery](https://dl.orangefox.download/62bb16c36a44bc738419d9bb)
+
+Here is a simple script to download and flash it automatically (for linux):
 
 ```bash
+cd /tmp
 curl -o recovery.zip https://dl.orangefox.download/62bb16c36a44bc738419d9bb
 unzip recovery.zip recovery.img
 fastboot flash recovery recovery.img
+rm recovery.zip recovery.img
 ```
 
 ## How to flash
@@ -159,9 +166,9 @@ Enter fastboot mode (hold vol- and pwr buttons while turned off), and run these 
 ```bash
 pmbootstrap flasher flash_kernel # flash kernel to boot
 fastboot reboot fastboot # enter fastbootd mode
-pmbootstrap flasher flash_rootfs # flash rootfs to userdata
-# in some cases its good to flash rootfs to system partition too:
-# pmbootstrap flasher flash_rootfs --partition system
+pmbootstrap flasher flash_rootfs # flash rootfs to system
+# in some cases its good to flash rootfs to userdata partition too:
+# pmbootstrap flasher flash_rootfs --partition userdata
 ```
 
 3. Reboot
