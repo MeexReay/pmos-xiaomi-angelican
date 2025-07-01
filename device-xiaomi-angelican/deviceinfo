@@ -27,7 +27,8 @@ deviceinfo_bootimg_qcdt="false"
 # Flashing related
 deviceinfo_flash_method="fastboot"
 deviceinfo_flash_sparse="true"
-deviceinfo_flash_fastboot_partition_rootfs="system" # TODO: make it work with userdata
+deviceinfo_flash_fastboot_partition_rootfs="system"
+# TODO: make it work with userdata
 deviceinfo_generate_bootimg="true"
 
 # Offsets

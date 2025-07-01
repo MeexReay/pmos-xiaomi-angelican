@@ -93,7 +93,21 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 
 - Power off the phone, hold `Volume Up` and `Volume Down` buttons at the same time and connect usb cable
 
-### Flash stock firmware (Windows)
+### Backup full flash
+
+To backup:
+
+```bash
+python mtk.py rf backup.bin --preload preloader_k62v1_64_bsp.bin --loader n.bin
+```
+
+To restore:
+
+```bash
+python mtk.py wf backup.bin --preload preloader_k62v1_64_bsp.bin --loader n.bin
+```
+
+### Flash stock firmware (Windows, fastboot)
 
 It is recommended to flash stock firmware before doing anything.
 
@@ -104,9 +118,8 @@ It is recommended to flash stock firmware before doing anything.
 3. Launch MiFlash.exe and paste the path of firmware folder to that lonely input entry
 4. Connect the phone in fastboot mode (not fastbootd)
 5. Click refresh, then flash button
-6. That's all, close the window
 
-### Flash stock firmware (Linux/MacOS)
+### Flash stock firmware (Linux/MacOS, fastboot)
 
 It is recommended to flash stock firmware before doing anything.
 
@@ -121,7 +134,25 @@ sed -i '/flash vbmeta/d;/flash recovery/d' flash_all.sh
 
 3. Connect the phone in fastboot mode (not fastbootd)
 4. Run `./flash_all.sh`
-5. That's all, close the console
+
+### Flash stock firmware (Linux, mtkclient)
+
+This guide can be helpful to unbrick the phone.
+
+[Download firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it.
+
+1. Open the firmware directory in console:
+2. Clone mtkclient stuff:
+
+```bash
+git clone https://github.com/bkerler/mtkclient
+cp -r mtkclient/* .
+git clone https://github.com/MeexReay/mtkclient-angelican
+cp mtkclient-angelican/* .
+```
+
+3. Run `./flash_all_mtkclient.sh`
+4. Power off the phone, hold `Volume Up` and `Volume Down` buttons and connect usb cable
 
 ### Disable vbmeta
 
@@ -172,6 +203,9 @@ pmbootstrap flasher flash_rootfs # flash rootfs to system
 ```
 
 3. Reboot
+
+> [!IMPORTANT]
+> Always leave from fastboot with `fastboot reboot`
 
 ```bash
 fastboot reboot
