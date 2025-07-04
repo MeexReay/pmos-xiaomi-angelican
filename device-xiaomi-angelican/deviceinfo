@@ -18,8 +18,8 @@ deviceinfo_screen_width="720"
 deviceinfo_screen_height="1600"
 
 # Bootloader related
-deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 androidboot.init_fatal_reboot_target=recovery buildvariant=userdebug kpti=off"
-# deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 buildvariant=user" # default kernel cmdline
+# deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 androidboot.init_fatal_reboot_target=recovery buildvariant=userdebug kpti=off"
+deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 buildvariant=user" # default kernel cmdline
 # deviceinfo_create_initfs_extra="true" # make extra space for initfs
 deviceinfo_bootimg_mtk_mkimage="false"
 deviceinfo_bootimg_qcdt="false"
@@ -27,7 +27,8 @@ deviceinfo_bootimg_qcdt="false"
 # Flashing related
 deviceinfo_flash_method="fastboot"
 deviceinfo_flash_sparse="true"
-deviceinfo_flash_fastboot_partition_rootfs="userdata"
+deviceinfo_flash_fastboot_partition_rootfs="system"
+# TODO: make it work with userdata
 deviceinfo_generate_bootimg="true"
 
 # Offsets
@@ -40,9 +41,8 @@ deviceinfo_flash_offset_second="0xbff88000"
 deviceinfo_flash_offset_tags="0x07808000"
 
 # dtb
-deviceinfo_dtb="mediatek/merged"
+deviceinfo_dtb="mediatek/merged" # it merges on linux build
 deviceinfo_append_dtb="false"
-# deviceinfo_flash_fastboot_partition_dtbo="dtbo" # use prebuilt dtbo.img! for some reason pmbootstrap cant make it
 deviceinfo_bootimg_dtb_second="false"
 
 # remove ncm error
