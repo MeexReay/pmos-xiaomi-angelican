@@ -10,8 +10,11 @@ Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 - [x] Kernel booting
 - [x] Debug shell
 - [x] SSH (use `ssh 172.16.42.1`)
-- [x] Display + Touchscreen (i3wm works) 
-- [ ] Buffyboard and UI
+- [x] Display + Touchscreen (i3wm works)
+- [ ] Buffyboard now works
+- [ ] Phosh now works
+- [ ] Split firmware and device info
+- [ ] Mainline
  
 ## How to install
 
@@ -71,15 +74,15 @@ git clone https://github.com/coloredmarble/redmi_9a_mtkclient
 cp redmi_9a_mtkclient/* .
 ```
 
-#### Prepare mtkclient (NixOS)
+<!-- #### Prepare mtkclient (NixOS) -->
 
-```bash
-git clone https://github.com/bkerler/mtkclient
-cd mtkclient
-git clone https://github.com/MeexReay/mtkclient-angelican
-cp mtkclient-angelican/* .
-nix-shell
-```
+<!-- ```bash -->
+<!-- git clone https://github.com/bkerler/mtkclient -->
+<!-- cd mtkclient -->
+<!-- git clone https://github.com/MeexReay/mtkclient-angelican -->
+<!-- cp mtkclient-angelican/* . -->
+<!-- nix-shell -->
+<!-- ``` -->
 
 #### Unlock
 
@@ -135,7 +138,7 @@ sed -i '/flash vbmeta/d;/flash recovery/d' flash_all.sh
 
 ### Flash stock firmware (Linux, mtkclient)
 
-This guide can be helpful to unbrick the phone.
+This guide can be helpful to unbrick a phone.
 
 [Download firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it.
 
