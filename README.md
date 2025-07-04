@@ -198,8 +198,7 @@ Enter fastboot mode (hold vol- and pwr buttons while turned off), and run these 
 pmbootstrap flasher flash_kernel # flash kernel to boot
 fastboot reboot fastboot # enter fastbootd mode
 pmbootstrap flasher flash_rootfs # flash rootfs to system
-# in some cases its good to flash rootfs to userdata partition too:
-# pmbootstrap flasher flash_rootfs --partition userdata
+pmbootstrap flasher flash_rootfs --partition userdata # flash rootfs to userdata
 ```
 
 3. Reboot
