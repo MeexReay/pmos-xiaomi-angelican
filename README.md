@@ -34,14 +34,14 @@ ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 
 Here is described the unofficial method with mtkclient
 
-#### Install dependencies (Windows)
+<!-- #### Install dependencies (Windows) -->
 
-Install usb drivers:
+<!-- Install usb drivers: -->
   
-- [https://mtkdriver.com/](mtkdriver.com)
-- [https://github.com/daynix/usbdk/releases](usbdk)
+<!-- - [https://mtkdriver.com/](mtkdriver.com) -->
+<!-- - [https://github.com/daynix/usbdk/releases](usbdk) -->
 
-#### Install dependencies (Linux/MacOS)
+#### Install dependencies
  
 Install libraries:
   
@@ -94,7 +94,7 @@ python mtk.py da seccfg unlock --preload preloader_k62v1_64_bsp.bin --loader n.b
 
 - Power off the phone, hold `Volume Up` and `Volume Down` buttons at the same time and connect usb cable
 
-### Backup full flash
+#### Backup full flash
 
 To backup:
 
@@ -108,19 +108,19 @@ To restore:
 python mtk.py wf backup.bin --preload preloader_k62v1_64_bsp.bin --loader n.bin
 ```
 
-### Flash stock firmware (Windows, fastboot)
+<!-- ### Flash stock firmware (Windows, fastboot) -->
 
-It is recommended to flash stock firmware before doing anything.
+<!-- It is recommended to flash stock firmware before doing anything. -->
 
-[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
+<!-- [Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it -->
 
-1. Download [MiFlashTool](https://cdn.alsgp0.fds.api.mi-img.com/micomm/MiFlash2020-3-14-0.rar)
-2. Unpack firmware.tgz to some folder and copy its path
-3. Launch MiFlash.exe and paste the path of firmware folder to that lonely input entry
-4. Connect the phone in fastboot mode (not fastbootd)
-5. Click refresh, then flash button
+<!-- 1. Download [MiFlashTool](https://cdn.alsgp0.fds.api.mi-img.com/micomm/MiFlash2020-3-14-0.rar) -->
+<!-- 2. Unpack firmware.tgz to some folder and copy its path -->
+<!-- 3. Launch MiFlash.exe and paste the path of firmware folder to that lonely input entry -->
+<!-- 4. Connect the phone in fastboot mode (not fastbootd) -->
+<!-- 5. Click refresh, then flash button -->
 
-### Flash stock firmware (Linux/MacOS, fastboot)
+### Flash stock firmware with fastboot
 
 It is recommended to flash stock firmware before doing anything.
 
@@ -136,7 +136,7 @@ sed -i '/flash vbmeta/d;/flash recovery/d' flash_all.sh
 3. Connect the phone in fastboot mode (not fastbootd)
 4. Run `./flash_all.sh`
 
-### Flash stock firmware (Linux, mtkclient)
+### Flash stock firmware with mtkclient (experimental)
 
 This guide can be helpful to unbrick a phone.
 
@@ -155,21 +155,11 @@ cp mtkclient-angelican/* .
 3. Run `./flash_all_mtkclient.sh`
 4. Power off the phone, hold `Volume Up` and `Volume Down` buttons and connect usb cable
 
-### Disable vbmeta
-
-Got the image from here: [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
-
-```bash
-fastboot flash vbmeta vbmeta_disabled.img
-fastboot flash vbmeta_system vbmeta_disabled.img
-fastboot flash vbmeta_vendor vbmeta_disabled.img
-```
-
 ### Flash recovery
 
 It is strongly recommended to flash the recovery.
 
-[Orangefox recovery page](https://orangefox.download/device/61f1325a775bca54ef3bf25f)
+[Orangefox recovery page](https://orangefox.download/device/61f1325a775bca54ef3bf25f) \
 [Download recovery](https://dl.orangefox.download/62bb16c36a44bc738419d9bb)
 
 Here is a simple script to download and flash it automatically (for linux):
@@ -180,6 +170,16 @@ curl -o recovery.zip https://dl.orangefox.download/62bb16c36a44bc738419d9bb
 unzip recovery.zip recovery.img
 fastboot flash recovery recovery.img
 rm recovery.zip recovery.img
+```
+
+### Disable vbmeta
+
+Got the image from here: [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
+
+```bash
+fastboot flash vbmeta vbmeta_disabled.img
+fastboot flash vbmeta_system vbmeta_disabled.img
+fastboot flash vbmeta_vendor vbmeta_disabled.img
 ```
 
 ## How to flash
