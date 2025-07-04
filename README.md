@@ -9,11 +9,9 @@ Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 - [x] Kernel compiling
 - [x] Kernel booting
 - [x] Debug shell
-- [x] Loading logo
-- [x] PMOS starting
 - [x] SSH (use `ssh 172.16.42.1`)
-- [x] Display + Toucscreen (i3wm works) 
-- [ ] Framebuffer and UI
+- [x] Display + Touchscreen (i3wm works) 
+- [ ] Buffyboard and UI
  
 ## How to install
 
