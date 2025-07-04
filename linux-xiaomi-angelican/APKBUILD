@@ -1,5 +1,5 @@
-# Reference: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c/kernel-xiaomi-mt6765
-# Kernel config based on: arch/arm64/configs/angelican_defconfig
+# Kernel: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c/kernel-xiaomi-mt6765/-/tree/pmos
+# Defconfig: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c/kernel-xiaomi-mt6765/-/raw/pmos/arch/arm64/configs/angelica_halium_defconfig
 
 pkgname=linux-xiaomi-angelican
 pkgver=4.9.190
@@ -24,7 +24,7 @@ makedepends="
 
 # Source
 _repository="kernel-xiaomi-mt6765"
-_commit="5b52fedbe4d7c6809b5040f7486a8b72812f3fba"
+_commit="90930deeca57d55975764660a6350cc38b00704e"
 _config="config-$_flavor.$arch"
 source="
 	$pkgname-$_commit.tar.gz::https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c/$_repository/-/archive/$_commit/$_repository-$_commit.tar.gz
