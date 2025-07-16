@@ -18,15 +18,27 @@ Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
  
 ## How to install
 
-Run these commands to add the device to pmaports:
+Clone the repository:
 
 ```bash
 git clone https://github.com/MeexReay/pmos-xiaomi-angelican.git
 cd pmos-xiaomi-angelican
-source extract-paths.sh
+```
+
+Then run this to install:
+
+```bash
+PMAPORTS=$(pmbootstrap config | sed -n 's/^aports = //p')
 ln -s $PWD/linux-xiaomi-angelican $PMAPORTS/device/testing
 ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
 ```
+
+or
+
+```
+./install.sh
+```
+
 
 ## How to prepare a phone
 
