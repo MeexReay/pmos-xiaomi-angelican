@@ -39,7 +39,6 @@ or
 ./install.sh
 ```
 
-
 ## How to prepare a phone
 
 ### Unlock bootloader
@@ -154,7 +153,7 @@ This guide can be helpful to unbrick a phone.
 
 [Download firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it.
 
-1. Open the firmware directory in console:
+1. Open the firmware directory in console.
 2. Clone mtkclient stuff:
 
 ```bash
@@ -211,7 +210,7 @@ Enter fastboot mode (hold vol- and pwr buttons while turned off), and run these 
 pmbootstrap flasher flash_kernel # flash kernel to boot
 fastboot reboot fastboot # enter fastbootd mode
 pmbootstrap flasher flash_rootfs # flash rootfs to system
-pmbootstrap flasher flash_rootfs --partition userdata # flash rootfs to userdata
+pmbootstrap flasher flash_rootfs --partition userdata # flash rootfs to userdata (idk why but its important)
 ```
 
 3. Reboot
@@ -225,6 +224,7 @@ fastboot reboot
 
 ## See also
 
+- [adomerle's mainline kernel fork](https://github.com/adomerle/linux-mt6765)
 - [xiaomi angelican wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_NFC_(xiaomi-angelican))
 - [orangefox recovery](https://orangefox.download/device/61f1325a775bca54ef3bf25f)
 - [mtkclient](https://github.com/bkerler/mtkclient)
