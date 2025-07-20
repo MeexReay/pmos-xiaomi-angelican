@@ -127,7 +127,7 @@ python mtk.py wf backup.bin --preload preloader_k62v1_64_bsp.bin --loader n.bin
 
 It is recommended to flash stock firmware before doing anything.
 
-[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) ([https://files.meex.lol/xiaomi-angelican/angelican_firmware_v12.0.16.0.tgz](my mirror)) and unpack it
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) ([my mirror](https://files.meex.lol/xiaomi-angelican/angelican_firmware_v12.0.16.0.tgz)) and unpack it
 
 1. Open the firmware directory in console
 2. Remove flashing your vbmeta and recovery partitions (optional):
@@ -143,7 +143,7 @@ sed -i '/flash vbmeta/d;/flash recovery/d' flash_all.sh
 
 This guide can be helpful to unbrick a phone.
 
-[Download firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) ([https://files.meex.lol/xiaomi-angelican/angelican_firmware_v12.0.16.0.tgz](my mirror)) and unpack it.
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) ([my mirror](https://files.meex.lol/xiaomi-angelican/angelican_firmware_v12.0.16.0.tgz)) and unpack it
 
 1. Open the firmware directory in console.
 2. Clone mtkclient stuff:
@@ -179,16 +179,6 @@ Other recoveries:
 - [Orangefox (mirror)](https://files.meex.lol/xiaomi-angelican/angelican_recovery_orangefox.img)
 - [Unofficial TWRP (mirror)](https://files.meex.lol/xiaomi-angelican/angelican_recovery_twrp.img)
 
-### Disable vbmeta
-
-Got the image from here: [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
-
-```bash
-fastboot flash vbmeta vbmeta_disabled.img
-fastboot flash vbmeta_system vbmeta_disabled.img
-fastboot flash vbmeta_vendor vbmeta_disabled.img
-```
-
 ## How to flash
 
 1. Build images
@@ -203,6 +193,7 @@ pmbootstrap install
 Enter fastboot mode (hold vol- and pwr buttons while turned off), and run these commands:
 
 ```bash
+pmbootstrap flasher flash_vbmeta # disable vbmeta
 pmbootstrap flasher flash_kernel # flash kernel to boot
 fastboot reboot fastboot # enter fastbootd mode
 pmbootstrap flasher flash_rootfs # flash rootfs to system
