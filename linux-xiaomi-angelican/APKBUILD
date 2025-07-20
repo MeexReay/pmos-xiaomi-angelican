@@ -1,72 +1,72 @@
-# Reference: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c/kernel-xiaomi-mt6765
-# Kernel config based on: arch/arm64/configs/angelican_defconfig
+# Kernel fork: https://gitlab.com/mtk-mainline/mt6762/linux
 
-pkgname=linux-xiaomi-angelican
-pkgver=4.9.190
+_flavor="xiaomi-angelican"
+pkgname=linux-$_flavor
+pkgver=6.10.0_rc3
 pkgrel=0
-pkgdesc="Xiaomi Redmi 9C NFC kernel fork"
+pkgdesc="Mainline Kernel fork for Xiaomi Redmi 9C NFC"
 arch="aarch64"
 _carch="arm64"
-_flavor="xiaomi-angelican"
-url="https://kernel.org"
+url="https://github.com/adomerle/linux-mt6765/tree/mt6765-next"
 license="GPL-2.0-only"
-options="!strip !check !tracedeps pmb:cross-native"
-makedepends="
-	bash
-	bc
-	bison
-	devicepkg-dev
-	flex
-	openssl-dev
-	perl
-	python3
-"
+options="!check !tracedeps pmb:cross-native pmb:kconfigcheck-community"
+makedepends="bash bison findutils flex installkernel openssl-dev perl zstd python3"
 
 # Source
-_repository="kernel-xiaomi-mt6765"
-_commit="5b52fedbe4d7c6809b5040f7486a8b72812f3fba"
 _config="config-$_flavor.$arch"
+_repository="linux-mt6765"
+_commit="5be6e64697351f1f6b1397743ded815af54bcc4a"
+
 source="
-	$pkgname-$_commit.tar.gz::https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c/$_repository/-/archive/$_commit/$_repository-$_commit.tar.gz
+	$pkgname-$_commit.tar.gz::https://github.com/adomerle/$_repository/archive/$_commit.tar.gz
 	$_config
-	001-touchscreen-firmware-loading-time.patch
-	002-battery-percentage.patch
-	003-fix-check-lxdialog-makefile.patch
-	004-fix-check-lxdialog.patch
 "
 builddir="$srcdir/$_repository-$_commit"
-_outdir="out"
 
 prepare() {
 	default_prepare
-	. downstreamkernel_prepare
+	cp "$srcdir/config-$_flavor.$arch" .config
 }
 
 build() {
 	unset LDFLAGS
 	make O="$_outdir" ARCH="$_carch" CC="${CC:-gcc}" \
-		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-postmarketOS"
+		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-$_flavor"
 }
 
 package() {
-	downstreamkernel_package "$builddir" "$pkgdir" "$_carch" \
-		"$_flavor" "$_outdir"
+	if [ -e "$builddir/arch/$_carch/boot/vmlinuz.efi" ]; then
+		# ZBOOT EFI decompressor for EFI booting
+		install -Dm644 "$builddir/arch/$_carch/boot/vmlinuz.efi" \
+			"$pkgdir/boot/linux.efi"
 
-	make dtbs_install O="$_outdir" ARCH="$_carch" \
-		INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs
+		# Old GZIP'd kernel image for boot.img compatibility
+		install -Dm644 "$builddir/arch/$_carch/boot/vmlinuz" \
+			"$pkgdir/boot/vmlinuz"
+	else
+		echo "WARNING: CONFIG_ZBOOT not enabled!"
+		install -Dm644 "$builddir/arch/$_carch/boot/Image.gz" \
+			"$pkgdir/boot/vmlinuz"
+	fi
 
-  make modules_install O="$_outdir" ARCH="$_carch" \
-    INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs \
-    INSTALL_MOD_PATH="$pkgdir" INSTALL_MOD_STRIP=1
+	make modules_install dtbs_install \
+		ARCH="$_carch" \
+		INSTALL_PATH="$pkgdir"/boot/ \
+		INSTALL_MOD_PATH="$pkgdir" \
+		INSTALL_MOD_STRIP=1 \
+		INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs-tmp
 
-	cat "$pkgdir"/boot/dtbs/mediatek/*.dtb > "$pkgdir"/boot/dtbs/mediatek/merged.dtb
+	mkdir -p "$pkgdir"/boot/dtbs/mediatek
+	cp -r "$pkgdir"/boot/dtbs-tmp/mediatek/mt6765* "$pkgdir"/boot/dtbs/mediatek
+	rm -rf "$pkgdir"/boot/dtbs-tmp
+
+	rm -f "$pkgdir"/lib/modules/*/build "$pkgdir"/lib/modules/*/source
+
+	install -D "$builddir"/include/config/kernel.release \
+		"$pkgdir"/usr/share/kernel/$_flavor/kernel.release
 }
 
 sha512sums="
-beeaa1b5b5d3e6f635508c6f421051080f7fdc296909db7448e4c706b6a54755badc2ea0c1316dbf0a1d394dbea15266a84dfa36d9818c8df99747484c9175b6  linux-xiaomi-angelican-5b52fedbe4d7c6809b5040f7486a8b72812f3fba.tar.gz
-399dbdda808e8b6bce506ac34a7ad6a27bf5bcfcf24e62d13a7a6cfb08309e41388dfa4e001c3c9ee5265c4d69f60dfe453c5f62b43914675f1868963c95cdf7  config-xiaomi-angelican.aarch64
-3fc36011ab030382f6b74e3821dcc75a236e12fe38bf18639fededc6c49a8c809d9ca1af5a9f2ed83f5f412a383918db14b4af48eda7087ec5997ca00e018152  001-touchscreen-firmware-loading-time.patch
-2ed25978e3c91addf7e568b68ccb6036aa581da0981ec75527e25d15d0ee7dfed97100376e58ce6a6c07ef8a96210a30c0ad91b3cea29528aa89fc59980691bf  002-battery-percentage.patch
-c33fad9de627e72f12e61e728fa1ec53ef15259c7790392a997cc7269e60e45da9534d58851c3b348a1729aaa134d1df305e33546e8a1f3654462f2c3c1d9563  003-fix-check-lxdialog-makefile.patch
-182be3c596b9cc267ac108d7cf03fc8c328ccc6b36770800e4dcedea8d1bb65e3f5eacf590c2948f58b1418cc60a1670ba77dde8c259e428d158c31b6e1dbaf5  004-fix-check-lxdialog.patch
+cd82a8bff19d0cd1e4ec557f65ad17c109167b8e7c24e2097c6a4ced3eb28df25e1ceb03f6d444f88a20dc54df996aed7267743cad01e0ee6680a8ddd7b32b2c  linux-xiaomi-angelican-5be6e64697351f1f6b1397743ded815af54bcc4a.tar.gz
+398f88c664a13cfb2d0a956bb1978b03c8719854e5966efe46f4b943d8edef9f288cafcc8d4bd0f2b77a6e954703c8999ee6372f2b0c941a9050bd6e009c00c2  config-xiaomi-angelican.aarch64
 "

@@ -2,7 +2,8 @@
 
 . extract-paths.sh
 
-mkdir -p $PMAPORTS/device/testing/linux-xiaomi-angelican
-mkdir -p $PMAPORTS/device/testing/device-xiaomi-angelican
-sudo mount --bind $PWD/linux-xiaomi-angelican $PMAPORTS/device/testing/linux-xiaomi-angelican
-sudo mount --bind $PWD/device-xiaomi-angelican $PMAPORTS/device/testing/device-xiaomi-angelican
+
+rm -rf $PMAPORTS/device/testing/linux-xiaomi-angelican
+rm -rf $PMAPORTS/device/testing/device-xiaomi-angelican
+ln -s $PWD/linux-xiaomi-angelican $PMAPORTS/device/testing
+ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing

@@ -41,7 +41,7 @@ deviceinfo_flash_offset_second="0xbff88000"
 deviceinfo_flash_offset_tags="0x07808000"
 
 # dtb
-deviceinfo_dtb="mediatek/merged" # it merges on linux build
+# deviceinfo_dtb="mediatek/merged" # it merges on linux build
 deviceinfo_append_dtb="false"
 deviceinfo_bootimg_dtb_second="false"
 
