@@ -28,7 +28,6 @@ deviceinfo_bootimg_qcdt="false"
 deviceinfo_flash_method="fastboot"
 deviceinfo_flash_sparse="true"
 deviceinfo_flash_fastboot_partition_rootfs="system"
-# TODO: make it work with userdata
 deviceinfo_generate_bootimg="true"
 
 # Offsets
@@ -41,9 +40,10 @@ deviceinfo_flash_offset_second="0xbff88000"
 deviceinfo_flash_offset_tags="0x07808000"
 
 # dtb
-deviceinfo_dtb="mediatek/merged" # it merges on linux build
+deviceinfo_dtb="mediatek/merged"
 deviceinfo_append_dtb="false"
 deviceinfo_bootimg_dtb_second="false"
+# flash_fastboot_partition_dtbo="dtbo"
 
 # remove ncm error
 deviceinfo_usb_network_function="rndis.usb0"

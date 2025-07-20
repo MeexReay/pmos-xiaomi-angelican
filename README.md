@@ -25,15 +25,7 @@ git clone https://github.com/MeexReay/pmos-xiaomi-angelican.git
 cd pmos-xiaomi-angelican
 ```
 
-Then run this to install:
-
-```bash
-PMAPORTS=$(pmbootstrap config | sed -n 's/^aports = //p')
-ln -s $PWD/linux-xiaomi-angelican $PMAPORTS/device/testing
-ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
-```
-
-or
+Then run this:
 
 ```
 ./install.sh

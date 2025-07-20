@@ -33,6 +33,7 @@ source="
 	002-battery-percentage.patch
 	003-fix-check-lxdialog-makefile.patch
 	004-fix-check-lxdialog.patch
+	005-add-prebuilt-cust-dtsi.patch
 "
 builddir="$srcdir/$_repository-$_commit"
 _outdir="out"
@@ -59,7 +60,9 @@ package() {
     INSTALL_DTBS_PATH="$pkgdir"/boot/dtbs \
     INSTALL_MOD_PATH="$pkgdir" INSTALL_MOD_STRIP=1
 
-	cat "$pkgdir"/boot/dtbs/mediatek/*.dtb > "$pkgdir"/boot/dtbs/mediatek/merged.dtb
+	cat "$pkgdir"/boot/dtbs/mediatek/mt6765.dtb \
+		"$pkgdir"/boot/dtbs/mediatek/angelican.dtb \
+		> "$pkgdir"/boot/dtbs/mediatek/merged.dtb
 }
 
 sha512sums="
@@ -69,4 +72,5 @@ beeaa1b5b5d3e6f635508c6f421051080f7fdc296909db7448e4c706b6a54755badc2ea0c1316dbf
 2ed25978e3c91addf7e568b68ccb6036aa581da0981ec75527e25d15d0ee7dfed97100376e58ce6a6c07ef8a96210a30c0ad91b3cea29528aa89fc59980691bf  002-battery-percentage.patch
 c33fad9de627e72f12e61e728fa1ec53ef15259c7790392a997cc7269e60e45da9534d58851c3b348a1729aaa134d1df305e33546e8a1f3654462f2c3c1d9563  003-fix-check-lxdialog-makefile.patch
 182be3c596b9cc267ac108d7cf03fc8c328ccc6b36770800e4dcedea8d1bb65e3f5eacf590c2948f58b1418cc60a1670ba77dde8c259e428d158c31b6e1dbaf5  004-fix-check-lxdialog.patch
+5b60a6e6931d111c95096403d34145e09a4d6781ff92827b46e35cc51d3489d8ddd9f02309440c15535f3e800d45f118539271e2a98a798de026dfdf32fbd910  005-add-prebuilt-cust-dtsi.patch
 "
