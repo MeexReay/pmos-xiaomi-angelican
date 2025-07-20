@@ -193,7 +193,9 @@ pmbootstrap install
 Enter fastboot mode (hold vol- and pwr buttons while turned off), and run these commands:
 
 ```bash
-pmbootstrap flasher flash_vbmeta # disable vbmeta
+pmbootstrap flasher flash_vbmeta --partition vbmeta
+pmbootstrap flasher flash_vbmeta --partition vbmeta_system
+pmbootstrap flasher flash_vbmeta --partition vbmeta_vendor
 pmbootstrap flasher flash_kernel # flash kernel to boot
 fastboot reboot fastboot # enter fastbootd mode
 pmbootstrap flasher flash_rootfs # flash rootfs to system
