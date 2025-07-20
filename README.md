@@ -18,17 +18,15 @@ Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
  
 ## How to install
 
-Clone the repository:
+Run these commands to add the device to pmaports:
 
 ```bash
 git clone https://github.com/MeexReay/pmos-xiaomi-angelican.git
 cd pmos-xiaomi-angelican
-```
-
-Then run this:
-
-```
-./install.sh
+PMAPORTS=$(pmbootstrap config | sed -n 's/^aports = //p')
+ln -s $PWD/linux-xiaomi-angelican $PMAPORTS/device/testing
+ln -s $PWD/device-xiaomi-angelican $PMAPORTS/device/testing
+# or just ./install.sh
 ```
 
 ## How to prepare a phone
@@ -111,6 +109,8 @@ To restore:
 python mtk.py wf backup.bin --preload preloader_k62v1_64_bsp.bin --loader n.bin
 ```
 
+[My backup image (7zip compressed)](https://files.meex.lol/xiaomi-angelican/angelican_backup.7z)
+
 <!-- ### Flash stock firmware (Windows, fastboot) -->
 
 <!-- It is recommended to flash stock firmware before doing anything. -->
@@ -127,7 +127,7 @@ python mtk.py wf backup.bin --preload preloader_k62v1_64_bsp.bin --loader n.bin
 
 It is recommended to flash stock firmware before doing anything.
 
-[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) ([my mirror](https://files.meex.lol/xiaomi-angelican/angelican_firmware_v12.0.16.0.tgz)) and unpack it
 
 1. Open the firmware directory in console
 2. Remove flashing your vbmeta and recovery partitions (optional):
@@ -143,7 +143,7 @@ sed -i '/flash vbmeta/d;/flash recovery/d' flash_all.sh
 
 This guide can be helpful to unbrick a phone.
 
-[Download firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it.
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) ([my mirror](https://files.meex.lol/xiaomi-angelican/angelican_firmware_v12.0.16.0.tgz)) and unpack it
 
 1. Open the firmware directory in console.
 2. Clone mtkclient stuff:
@@ -175,15 +175,9 @@ fastboot flash recovery recovery.img
 rm recovery.zip recovery.img
 ```
 
-### Disable vbmeta
-
-Got the image from here: [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
-
-```bash
-fastboot flash vbmeta vbmeta_disabled.img
-fastboot flash vbmeta_system vbmeta_disabled.img
-fastboot flash vbmeta_vendor vbmeta_disabled.img
-```
+Other recoveries:
+- [Orangefox (mirror)](https://files.meex.lol/xiaomi-angelican/angelican_recovery_orangefox.img)
+- [Unofficial TWRP (mirror)](https://files.meex.lol/xiaomi-angelican/angelican_recovery_twrp.img)
 
 ## How to flash
 
@@ -199,10 +193,13 @@ pmbootstrap install
 Enter fastboot mode (hold vol- and pwr buttons while turned off), and run these commands:
 
 ```bash
+pmbootstrap flasher flash_vbmeta --partition vbmeta
+pmbootstrap flasher flash_vbmeta --partition vbmeta_system
+pmbootstrap flasher flash_vbmeta --partition vbmeta_vendor
 pmbootstrap flasher flash_kernel # flash kernel to boot
 fastboot reboot fastboot # enter fastbootd mode
 pmbootstrap flasher flash_rootfs # flash rootfs to system
-pmbootstrap flasher flash_rootfs --partition userdata # flash rootfs to userdata (idk why but its important)
+pmbootstrap flasher flash_rootfs --partition userdata # flash rootfs to userdata
 ```
 
 3. Reboot
@@ -230,6 +227,7 @@ fastboot reboot
 - [postmarket redmi 9a](https://github.com/SheatNoisette/postmarket_redmi_9a)
 - [linux on redmi 9c/9a in telegram](https://t.me/linux_garden)
 - [4pda topic about redmi 9c nfc](https://4pda.to/forum/index.php?showtopic=1012866)
+- [my firmware images mirror](https://files.meex.lol/xiaomi-angelican/)
 
 ## Contributing
 
