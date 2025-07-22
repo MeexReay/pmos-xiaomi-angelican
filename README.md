@@ -10,7 +10,7 @@ Also you can find more about me on my site: [meex.lol](https://meex.lol/about)
 - [x] Kernel booting
 - [x] Debug shell
 - [x] SSH (use `ssh 172.16.42.1`)
-- [x] Display + Touchscreen (i3wm works)
+- [ ] Display + Touchscreen (i3wm works)
 - [ ] Buffyboard now works
 - [ ] Phosh now works
 - [ ] Split firmware and device info
