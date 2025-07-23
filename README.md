@@ -127,7 +127,7 @@ python mtk.py wf backup.bin --preload preloader_k62v1_64_bsp.bin --loader n.bin
 
 It is recommended to flash stock firmware before doing anything.
 
-[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) ([my mirror](https://files.meex.lol/xiaomi-angelican/angelican_firmware_v12.0.16.0.tgz)) and unpack it
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
 
 1. Open the firmware directory in console
 2. Remove flashing your vbmeta and recovery partitions (optional):
@@ -143,7 +143,7 @@ sed -i '/flash vbmeta/d;/flash recovery/d' flash_all.sh
 
 This guide can be helpful to unbrick a phone.
 
-[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) ([my mirror](https://files.meex.lol/xiaomi-angelican/angelican_firmware_v12.0.16.0.tgz)) and unpack it
+[Download Firmware](https://xmfirmwareupdater.com/miui/angelican/stable/V12.0.16.0.QCSMIXM/) (MIUI v12.0.16.0) and unpack it
 
 1. Open the firmware directory in console.
 2. Clone mtkclient stuff:
@@ -174,10 +174,6 @@ unzip recovery.zip recovery.img
 fastboot flash recovery recovery.img
 rm recovery.zip recovery.img
 ```
-
-Other recoveries:
-- [Orangefox (mirror)](https://files.meex.lol/xiaomi-angelican/angelican_recovery_orangefox.img)
-- [Unofficial TWRP (mirror)](https://files.meex.lol/xiaomi-angelican/angelican_recovery_twrp.img)
 
 ## How to flash
 
@@ -216,6 +212,7 @@ fastboot reboot
 - [adomerle's mainline kernel fork](https://github.com/adomerle/linux-mt6765)
 - [xiaomi angelican wiki](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_9C_NFC_(xiaomi-angelican))
 - [orangefox recovery](https://orangefox.download/device/61f1325a775bca54ef3bf25f)
+- [my firmware images mirror](https://files.meex.lol/xiaomi-angelican/)
 - [mtkclient](https://github.com/bkerler/mtkclient)
 - [ubuntu touch installation](https://gist.github.com/sivinnguyen/a6f65c5af9198d40d396e11048512347)
 - [ubports community redmi 9c](https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c)
@@ -227,7 +224,6 @@ fastboot reboot
 - [postmarket redmi 9a](https://github.com/SheatNoisette/postmarket_redmi_9a)
 - [linux on redmi 9c/9a in telegram](https://t.me/linux_garden)
 - [4pda topic about redmi 9c nfc](https://4pda.to/forum/index.php?showtopic=1012866)
-- [my firmware images mirror](https://files.meex.lol/xiaomi-angelican/)
 
 ## Contributing
 
